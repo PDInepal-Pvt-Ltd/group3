@@ -1,0 +1,726 @@
+/* Global Styles - Safa Formwork & Scaffolding */
+
+:root {
+    --bg: #FAF9F6;
+    --text: #1E1E1E;
+    --accent: #C9A961;
+    --hover: #D4B87A;
+    --accent-light: #E8D5A8;
+    --radius: 12px;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Base button styles - Golden-Brown/Caramel theme, Performance Optimized */
+button, .btn {
+    background: linear-gradient(135deg, #E0B27C 0%, #D4A574 50%, #C89A60 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    box-shadow: 0 4px 15px rgba(200, 154, 96, 0.35);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(135deg, #D4A574 0%, #C89A60 50%, #B88950 100%);
+    transform: translate3d(0, -4px, 0) scale(1.02);
+    -webkit-transform: translate3d(0, -4px, 0) scale(1.02);
+    box-shadow: 0 8px 25px rgba(200, 154, 96, 0.5);
+}
+
+button:active, .btn:active {
+    transform: translate3d(0, -2px, 0) scale(1.01);
+    -webkit-transform: translate3d(0, -2px, 0) scale(1.01);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   FRESH NAVBAR BUILD - NO CONFLICTS
+   Desktop: Logo + Text (Left) | Nav Links (Right, 25-35px spacing)
+   Mobile: Logo + Text (Left) | Hamburger (Right) → Slide Menu (Below 768px)
+   ============================================ */
+
+/* ========== HEADER WRAPPER ========== */
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+.header-wrapper.scrolled {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== HEADER CONTAINER ========== */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* ========== LOGO SECTION (LEFT SIDE) ========== */
+.header-logo-section {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.header-logo-link:hover {
+    transform: translateY(-1px);
+}
+
+
+.header-logo-image {
+    height: 45px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+
+.header-brand-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c2925f;
+    letter-spacing: -0.3px;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* ========== DESKTOP NAVIGATION (RIGHT SIDE) ========== */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+.desktop-nav-item {
+    position: relative;
+}
+
+.desktop-nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a252f;
+    text-decoration: none;
+    padding: 0.65rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* Spacing between links: 25-35px (using margin) */
+.desktop-nav-item:not(:last-child) .desktop-nav-link {
+    margin-right: 30px;
+}
+
+.desktop-nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c2925f, transparent);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.desktop-nav-link:hover {
+    color: #c2925f;
+    background: rgba(194, 146, 95, 0.08);
+}
+
+.desktop-nav-link:hover::before {
+    width: 70%;
+}
+
+.desktop-nav-link.active {
+    color: #c2925f;
+    background: rgba(194, 146, 95, 0.12);
+    font-weight: 600;
+}
+
+.desktop-nav-link.active::before {
+    width: 70%;
+}
+
+/* ============================================
+   MOBILE HAMBURGER MENU - NAMESPACED (.safa-hb-*)
+   Mobile-only solution - Does NOT affect desktop navbar
+   Breakpoint: < 768px
+   ============================================ */
+
+/* Mobile Hamburger Toggle Button - Hidden on Desktop */
+.safa-hb-toggle {
+    display: none;
+}
+
+/* Mobile Menu Backdrop - Hidden on Desktop */
+.safa-hb-backdrop {
+    display: none;
+}
+
+/* Mobile Menu - Hidden on Desktop */
+.safa-hb-menu {
+    display: none;
+}
+
+/* ========== MOBILE ONLY (< 768px) ========== */
+@media (max-width: 767px) {
+    /* Ensure Header Container Has Proper Padding on Mobile - Force with !important */
+    .header-wrapper .header-container {
+        padding: 8px 15px !important;
+        min-height: 50px;
+        height: 50px !important;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Hide Desktop Navigation on Mobile */
+    .desktop-nav {
+        display: none !important;
+    }
+
+    /* Adjust Header Container Layout for Mobile */
+    .header-container {
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 12px !important;
+        overflow: hidden;
+    }
+
+    /* Fix Logo Section - Prevent Overflow on Mobile */
+    .header-logo-section {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        max-width: calc(100% - 60px) !important;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-logo-link {
+        gap: 8px !important;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .header-brand-text {
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        color: #c2925f !important;
+        letter-spacing: 0.15px !important;
+        text-transform: uppercase !important;
+        line-height: 1.2 !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .header-logo-image {
+        height: 45px !important;
+        max-width: 120px !important;
+        flex-shrink: 1;
+    }
+
+
+    .header-brand-text {
+        font-size: 1.2rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Show Hamburger Toggle - Right Side, Within Frame - High Specificity */
+    .header-container .safa-hb-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px !important;
+        height: 44px !important;
+        background: transparent;
+        border: 2px solid rgba(194, 146, 95, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 0 !important;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+        position: relative !important;
+        z-index: 1001;
+        gap: 6px;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0 !important;
+        box-sizing: border-box !important;
+        overflow: visible;
+    }
+
+    .safa-hb-toggle:hover {
+        border-color: #c2925f;
+        background: rgba(194, 146, 95, 0.05);
+    }
+
+    .safa-hb-toggle:focus {
+        outline: 2px solid #c2925f;
+        outline-offset: 2px;
+    }
+
+    .safa-hb-bar {
+        width: 24px;
+        height: 2.5px;
+        background: #1a252f;
+        border-radius: 2px;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+        transform-origin: center;
+        display: block;
+    }
+
+    .safa-hb-toggle:hover .safa-hb-bar {
+        background: #c2925f;
+    }
+
+    /* Hamburger Active State (X) - Instant Transformation */
+    .safa-hb-toggle[aria-expanded="true"] {
+        box-shadow: 0 0 20px rgba(194, 146, 95, 0.4);
+    }
+
+    .safa-hb-toggle[aria-expanded="true"] .safa-hb-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) scaleX(1.1);
+        background: #c2925f;
+    }
+
+    .safa-hb-toggle[aria-expanded="true"] .safa-hb-bar:nth-child(2) {
+        opacity: 0;
+        transform: scale(0) rotate(180deg);
+    }
+
+    .safa-hb-toggle[aria-expanded="true"] .safa-hb-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) scaleX(1.1);
+        background: #c2925f;
+    }
+
+    /* Mobile Menu Backdrop - Instant Display */
+    .safa-hb-backdrop {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(0, 0, 0, 0.7) 0%, 
+                    rgba(0, 0, 0, 0.6) 50%,
+                    rgba(0, 0, 0, 0.65) 100%);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        z-index: 999;
+        opacity: 1;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+        pointer-events: all;
+    }
+
+    .safa-hb-backdrop[aria-hidden="false"] {
+        display: block !important; /* ⚡ INSTANT - Show immediately */
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* Remove animated gradient overlay */
+    .safa-hb-backdrop::before {
+        display: none !important;
+    }
+
+    /* Mobile Menu - Instant Display */
+    .safa-hb-menu {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        background: #ffffff url('assets/menu-bg.jpg') center center / cover no-repeat;
+        background-color: #ffffff;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.25), 
+                    inset -2px 0 20px rgba(194, 146, 95, 0.1);
+        z-index: 1000;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 100px 0 40px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .safa-hb-menu[aria-hidden="false"] {
+        display: block !important; /* ⚡ INSTANT - Show immediately */
+        right: 0;
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Remove animated overlays */
+    .safa-hb-menu::after {
+        display: none !important;
+    }
+
+    .safa-hb-menu::before {
+        display: none !important;
+    }
+
+    .safa-hb-menu-top-line {
+        display: none !important;
+    }
+
+    .safa-hb-menu-list {
+        list-style: none;
+        margin: 0;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .safa-hb-menu-item {
+        opacity: 1; /* ⚡ INSTANT - Always visible when menu is open */
+        transform: none;
+        filter: none;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+    }
+
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    /* Remove all staggered animation delays */
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(1),
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(2),
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(3),
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(4),
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(5),
+    .safa-hb-menu[aria-hidden="false"] .safa-hb-menu-item:nth-child(6) { 
+        transition-delay: 0s !important; 
+    }
+
+    .safa-hb-link {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #1a252f;
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        display: block;
+        transition: none !important; /* ⚡ INSTANT - No animation */
+        background: rgba(194, 146, 95, 0.05);
+        border: 1px solid rgba(194, 146, 95, 0.1);
+        position: relative;
+        z-index: 1;
+        transform: none;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Remove animated background gradient */
+    .safa-hb-link::before {
+        display: none !important;
+    }
+
+    /* Remove glow effect */
+    .safa-hb-link::after {
+        display: none !important;
+    }
+
+    .safa-hb-link:hover,
+    .safa-hb-link:focus,
+    .safa-hb-link.active {
+        color: #fff;
+        background: linear-gradient(135deg, #c2925f 0%, #b88550 50%, #a67540 100%);
+        border-color: #c2925f;
+        transform: none; /* ⚡ INSTANT - No transform */
+        box-shadow: 0 8px 25px rgba(194, 146, 95, 0.5),
+                    0 0 30px rgba(194, 146, 95, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        outline: none;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Remove pulse animation */
+    .safa-hb-link.active {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ensure Header Container Has Proper Padding on Small Mobile - Force with !important */
+    .header-wrapper .header-container {
+        padding: 8px 12px !important;
+        min-height: 50px;
+        height: 50px !important;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 10px !important;
+        align-items: center !important;
+        display: flex !important;
+    }
+
+    .header-logo-section {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .header-logo-link {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+    }
+
+    .header-logo-image {
+        height: 35px !important;
+        max-width: 100px !important;
+    }
+
+    .header-brand-text {
+        font-size: 1rem !important;
+    }
+
+    .header-container .safa-hb-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .safa-hb-bar {
+        width: 20px;
+    }
+
+    .safa-hb-menu {
+        width: 260px;
+        max-width: 75vw;
+    }
+
+    .safa-hb-link {
+        font-size: 1rem;
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+
+    .section {
+        padding: 60px 0;
+    }
+
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+
+/* Floating Drag & Drop Hint */
+#cursorDndHint{
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translate3d(-9999px, -9999px, 0);
+	background: rgba(34, 34, 34, 0.92);
+	color: #fff;
+	padding: 8px 12px;
+	border-radius: 10px;
+	box-shadow: 0 8px 20px rgba(0,0,0,.25);
+	font-size: 0.9rem;
+	font-weight: 600;
+	letter-spacing: .2px;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .15s ease;
+	z-index: 2000;
+	user-select: none;
+	-webkit-user-select: none;
+	white-space: nowrap;
+}

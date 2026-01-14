@@ -1,0 +1,1708 @@
+/* ============================================
+   SAFA CONTACT PAGE - PREMIUM HD GLASSMORPHIC DESIGN
+   High Saturation Colors | HD Resolution | Perfect Typography
+   ============================================ */
+
+/* ========== HD RENDERING OPTIMIZATION ========== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ========== ROOT VARIABLES - HIGH SATURATION COLORS ========== */
+:root {
+    --safa-contact-bg: #faf7f3;
+    --safa-contact-text: #1a1f26;
+    --safa-contact-accent-start: #d4a574;
+    --safa-contact-accent-mid: #c8965c;
+    --safa-contact-accent-end: #b8854a;
+    --safa-contact-glow: rgba(212, 165, 116, 0.6);
+    --safa-contact-glow-strong: rgba(212, 165, 116, 0.8);
+    --safa-contact-glass-bg: rgba(255, 255, 255, 0.75);
+    --safa-contact-glass-border: rgba(255, 255, 255, 0.5);
+    --safa-contact-shadow: rgba(0, 0, 0, 0.15);
+    --safa-contact-shadow-strong: rgba(0, 0, 0, 0.25);
+    --safa-contact-gradient: linear-gradient(135deg, #d4a574 0%, #c8965c 50%, #b8854a 100%);
+    --safa-contact-gradient-light: linear-gradient(135deg, #e8c896 0%, #d4a574 50%, #c8965c 100%);
+}
+
+/* ========== PAGE CONTAINER ========== */
+.safa-contact-main {
+    background: linear-gradient(180deg, #faf7f3 0%, #f5f2ed 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    opacity: 0;
+    animation: safaContactFadeIn 1.2s ease-out forwards;
+    margin-top: 70px;
+    padding-bottom: 60px;
+}
+
+@keyframes safaContactFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== FLOATING PARTICLES BACKGROUND - ENHANCED ========== */
+.safa-contact-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.safa-contact-particles .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #d4a574 0%, #c8965c 100%);
+    border-radius: 50%;
+    opacity: 0.4;
+    box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+    animation: safaContactFloat 20s infinite ease-in-out;
+}
+
+.safa-contact-particles .particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 22s;
+}
+
+.safa-contact-particles .particle:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+    animation-duration: 20s;
+}
+
+.safa-contact-particles .particle:nth-child(3) {
+    left: 30%;
+    animation-delay: 4s;
+    animation-duration: 24s;
+}
+
+.safa-contact-particles .particle:nth-child(4) {
+    left: 40%;
+    animation-delay: 1s;
+    animation-duration: 21s;
+}
+
+.safa-contact-particles .particle:nth-child(5) {
+    left: 50%;
+    animation-delay: 3s;
+    animation-duration: 23s;
+}
+
+.safa-contact-particles .particle:nth-child(6) {
+    left: 60%;
+    animation-delay: 5s;
+    animation-duration: 19s;
+}
+
+.safa-contact-particles .particle:nth-child(7) {
+    left: 70%;
+    animation-delay: 2.5s;
+    animation-duration: 25s;
+}
+
+.safa-contact-particles .particle:nth-child(8) {
+    left: 80%;
+    animation-delay: 4.5s;
+    animation-duration: 22s;
+}
+
+@keyframes safaContactFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100px) translateX(80px) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========== HERO SECTION - CINEMATIC INTRO ========== */
+.safa-contact-hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Image */
+.safa-contact-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: safaContactHeroZoom 20s ease-in-out infinite;
+    transform: scale(1.1);
+    filter: brightness(0.7) contrast(1.1) saturate(1.2);
+    will-change: transform;
+}
+
+@keyframes safaContactHeroZoom {
+    0%, 100% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Overlay - Gold gradient overlay */
+.safa-contact-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(202, 165, 109, 0.4) 0%, 
+        rgba(30, 30, 30, 0.5) 50%,
+        rgba(202, 165, 109, 0.3) 100%);
+    z-index: 2;
+    animation: safaContactOverlayPulse 8s ease-in-out infinite;
+}
+
+@keyframes safaContactOverlayPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* Additional Background Effects */
+.safa-contact-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(202, 165, 109, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(202, 165, 109, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+    z-index: 2;
+    animation: safaContactBackgroundMove 15s ease-in-out infinite;
+}
+
+@keyframes safaContactBackgroundMove {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Hero Content - Cinematic Entrance */
+.safa-contact-hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 3;
+    position: relative;
+    padding: 0 30px;
+    max-width: 1000px;
+    animation: safaContactContentFadeIn 1.5s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes safaContactContentFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Hero Badge */
+.safa-contact-hero-badge {
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, 
+        rgba(202, 165, 109, 0.9) 0%, 
+        rgba(184, 133, 74, 0.9) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    box-shadow: 
+        0 8px 25px rgba(202, 165, 109, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: safaContactBadgeSlide 1s ease-out 0.3s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-contact-hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: safaContactBadgeShine 3s ease-in-out infinite;
+}
+
+@keyframes safaContactBadgeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes safaContactBadgeShine {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+/* Hero Title - Cinematic Typography */
+.safa-contact-hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    text-shadow: 
+        0 8px 40px rgba(0, 0, 0, 0.5),
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: safaContactTitleReveal 1.2s ease-out 0.5s both;
+    position: relative;
+}
+
+.safa-contact-hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #caa56d, transparent);
+    border-radius: 2px;
+    animation: safaContactTitleUnderline 1s ease-out 1.5s both;
+}
+
+@keyframes safaContactTitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes safaContactTitleUnderline {
+    from {
+        width: 0;
+    }
+    to {
+        width: 200px;
+    }
+}
+
+/* Hero Subtitle */
+.safa-contact-hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.95;
+    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: safaContactSubtitleFade 1s ease-out 0.8s both;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@keyframes safaContactSubtitleFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Indicator */
+.safa-contact-hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: safaContactScrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    position: relative;
+}
+
+.scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: safaContactScrollArrow 2s ease-in-out infinite;
+}
+
+@keyframes safaContactScrollBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes safaContactScrollArrow {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* ========== CONTACT SECTION ========== */
+.safa-contact-section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+/* ========== GLASSMORPHIC EFFECT - PREMIUM HD ========== */
+.safa-contact-info-glass,
+.safa-contact-map-glass {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: var(--safa-contact-glass-bg);
+    border: 2px solid var(--safa-contact-glass-border);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 60px var(--safa-contact-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+        0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 45px;
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.safa-contact-info-glass::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.safa-contact-info-glass:hover::before {
+    opacity: 1;
+}
+
+.safa-contact-info-glass:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+        0 30px 80px var(--safa-contact-shadow-strong),
+        0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+        0 0 40px var(--safa-contact-glow);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========== SEND US A MESSAGE FORM BOX - PREMIUM STATIC DESIGN ========== */
+.safa-contact-form-glass {
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.85) 0%, 
+        rgba(255, 255, 255, 0.75) 50%,
+        rgba(255, 255, 255, 0.8) 100%);
+    border: 2px solid rgba(202, 165, 109, 0.25);
+    border-radius: 28px;
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.12),
+        0 10px 30px rgba(202, 165, 109, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+        0 2px 0 rgba(255, 255, 255, 0.9) inset,
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    padding: 50px;
+    position: relative;
+    overflow: visible;
+    height: fit-content;
+    /* No transform on hover - completely static */
+}
+
+.safa-contact-form-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(202, 165, 109, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(202, 165, 109, 0.06) 0%, transparent 50%);
+    border-radius: 28px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.safa-contact-form-glass::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, 
+        rgba(202, 165, 109, 0.2) 0%, 
+        rgba(224, 199, 148, 0.15) 50%,
+        rgba(202, 165, 109, 0.2) 100%);
+    border-radius: 28px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+/* No hover movement - just subtle glow enhancement */
+.safa-contact-form-glass:hover {
+    transform: none;
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.15),
+        0 15px 40px rgba(202, 165, 109, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+        0 2px 0 rgba(255, 255, 255, 0.9) inset,
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    border-color: rgba(202, 165, 109, 0.35);
+}
+
+.safa-contact-form-glass:hover::after {
+    opacity: 1;
+}
+
+/* ========== CONTACT FORM ========== */
+.safa-contact-form-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.safa-contact-form-title {
+    font-size: 2.6rem;
+    color: var(--safa-contact-text);
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #caa56d 0%, #b8854a 50%, #caa56d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 10px rgba(202, 165, 109, 0.2);
+}
+
+.safa-contact-form {
+    position: relative;
+    z-index: 1;
+}
+
+.safa-contact-form-message {
+    padding: 20px 26px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    animation: safaContactMessageSlide 0.5s ease-out;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+}
+
+@keyframes safaContactMessageSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.safa-contact-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border-color: #b8dacc;
+    box-shadow: 
+        0 6px 20px rgba(21, 87, 36, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.safa-contact-error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border-color: #f1b0b7;
+    box-shadow: 
+        0 6px 20px rgba(114, 28, 36, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.safa-contact-form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.safa-contact-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.safa-contact-input-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+    z-index: 3;
+    pointer-events: none;
+    /* Smooth transitions for color and filter only - no movement */
+    transition: color 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Prevent any layout shifts */
+    will-change: color, filter;
+}
+
+/* Colorful Form Icons */
+.safa-contact-icon-person {
+    color: #4a90e2;
+    filter: drop-shadow(0 2px 6px rgba(74, 144, 226, 0.4));
+}
+
+.safa-contact-icon-email {
+    color: #e74c3c;
+    filter: drop-shadow(0 2px 6px rgba(231, 76, 60, 0.4));
+}
+
+.safa-contact-icon-phone {
+    color: #27ae60;
+    filter: drop-shadow(0 2px 6px rgba(39, 174, 96, 0.4));
+}
+
+.safa-contact-icon-briefcase {
+    color: #f39c12;
+    filter: drop-shadow(0 2px 6px rgba(243, 156, 18, 0.4));
+}
+
+.safa-contact-icon-tag {
+    color: #9b59b6;
+    filter: drop-shadow(0 2px 6px rgba(155, 89, 182, 0.4));
+}
+
+.safa-contact-icon-chat {
+    color: #3498db;
+    filter: drop-shadow(0 2px 6px rgba(52, 152, 219, 0.4));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-input-icon {
+    /* Icon stays in place - no scaling or movement */
+    transform: translateY(-50%);
+    /* Enhanced glow on icon when field is focused */
+    filter: drop-shadow(0 2px 8px currentColor);
+    /* Slightly increase icon color intensity */
+    opacity: 1;
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-person {
+    color: #357abd;
+    filter: drop-shadow(0 2px 8px rgba(74, 144, 226, 0.5));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-email {
+    color: #c0392b;
+    filter: drop-shadow(0 2px 8px rgba(231, 76, 60, 0.5));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-phone {
+    color: #229954;
+    filter: drop-shadow(0 2px 8px rgba(39, 174, 96, 0.5));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-briefcase {
+    color: #d68910;
+    filter: drop-shadow(0 2px 8px rgba(243, 156, 18, 0.5));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-tag {
+    color: #8e44ad;
+    filter: drop-shadow(0 2px 8px rgba(155, 89, 182, 0.5));
+}
+
+.safa-contact-form-group:focus-within .safa-contact-icon-chat {
+    color: #2980b9;
+    filter: drop-shadow(0 2px 8px rgba(52, 152, 219, 0.5));
+}
+
+.safa-contact-input,
+.safa-contact-textarea,
+.safa-contact-select {
+    width: 100%;
+    padding: 20px 20px 20px 58px;
+    border: 2px solid rgba(212, 165, 116, 0.2);
+    border-radius: 16px;
+    font-size: 1.05rem;
+    font-family: 'Inter', sans-serif;
+    background: rgba(255, 255, 255, 0.9);
+    /* Smooth transitions for all visual properties - no transform/scale */
+    transition: all 0.3s ease;
+    color: var(--safa-contact-text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    line-height: 1.5;
+    /* Prevent any layout shifts */
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.safa-contact-textarea {
+    min-height: 160px;
+    resize: none;
+    padding-top: 24px;
+    line-height: 1.6;
+    overflow-y: auto;
+}
+
+.safa-contact-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4a574' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+}
+
+/* Focus state for all input types - No zoom, just glow and border */
+.safa-contact-input:focus,
+.safa-contact-select:focus {
+    outline: none;
+    /* Gold border color */
+    border-color: #caa56d;
+    /* Subtle gold glow effect - no zoom, just elegant glow */
+    box-shadow: 
+        0 0 10px rgba(202, 165, 109, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Brighten background on focus for premium look */
+    background: #ffffff;
+    /* Absolutely no transform, scale, or movement */
+    transform: none;
+    /* Prevent any layout shifts - maintain exact dimensions */
+    width: 100%;
+    padding: 20px 20px 20px 58px;
+}
+
+/* Textarea focus - maintain padding-top for textarea */
+.safa-contact-textarea:focus {
+    outline: none;
+    /* Gold border color */
+    border-color: #caa56d;
+    /* Subtle gold glow effect - no zoom, just elegant glow */
+    box-shadow: 
+        0 0 10px rgba(202, 165, 109, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Brighten background on focus for premium look */
+    background: #ffffff;
+    /* Absolutely no transform, scale, or movement */
+    transform: none;
+    /* Prevent any layout shifts - maintain exact dimensions */
+    width: 100%;
+    padding: 24px 20px 20px 58px;
+}
+
+.safa-contact-label {
+    position: absolute;
+    left: 58px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.05rem;
+    pointer-events: none;
+    /* Smooth transitions for all properties - no transform movement */
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    padding: 0 10px;
+    z-index: 2;
+    font-weight: 500;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+/* Select label - always positioned at top */
+.safa-contact-label-select {
+    top: -12px;
+    left: 50px;
+    font-size: 0.9rem;
+    transform: translateY(0);
+    background: var(--safa-contact-glass-bg);
+    backdrop-filter: blur(10px);
+}
+
+.safa-contact-textarea + .safa-contact-label {
+    top: 28px;
+    transform: translateY(0);
+    line-height: 1.6;
+    padding-top: 3px;
+}
+
+/* Fix icon alignment for textarea - align straight with letter D in Description */
+.safa-contact-textarea-icon {
+    top: 31px !important;
+    transform: translateY(0) !important;
+    align-items: flex-start !important;
+    padding-top: 1px;
+}
+
+/* Ensure textarea icon aligns with label text baseline on focus */
+.safa-contact-textarea-group:focus-within .safa-contact-textarea-icon {
+    top: 31px !important;
+    /* Icon stays perfectly aligned - no scaling */
+    transform: translateY(0) !important;
+    /* Enhanced glow on focus */
+    filter: drop-shadow(0 2px 8px currentColor);
+    opacity: 1;
+}
+
+.safa-contact-input:focus + .safa-contact-label,
+.safa-contact-input:not(:placeholder-shown) + .safa-contact-label,
+.safa-contact-textarea:focus + .safa-contact-label,
+.safa-contact-textarea:not(:placeholder-shown) + .safa-contact-label {
+    top: -12px;
+    left: 50px;
+    font-size: 0.9rem;
+    color: var(--safa-contact-accent-start);
+    font-weight: 600;
+    background: var(--safa-contact-glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2px 10px;
+}
+
+/* Select label handling */
+.safa-contact-select:focus + .safa-contact-label {
+    color: var(--safa-contact-accent-start);
+    font-weight: 600;
+}
+
+.safa-contact-char-count {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.safa-contact-char-count span {
+    font-weight: 700;
+    color: var(--safa-contact-accent-start);
+}
+
+.safa-contact-error-message {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.safa-contact-form-group.error .safa-contact-error-message {
+    display: block;
+    animation: safaContactShake 0.5s ease;
+}
+
+@keyframes safaContactShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+.safa-contact-form-group.error .safa-contact-input,
+.safa-contact-form-group.error .safa-contact-textarea,
+.safa-contact-form-group.error .safa-contact-select {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2), 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* ========== SUBMIT BUTTON - PREMIUM HD ========== */
+.safa-contact-submit-btn {
+    width: 100%;
+    padding: 22px 40px;
+    background: var(--safa-contact-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 24px rgba(212, 165, 116, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.safa-contact-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.safa-contact-submit-btn:hover::before {
+    left: 100%;
+}
+
+.safa-contact-submit-btn:hover {
+    background: linear-gradient(135deg, #c8965c 0%, #b8854a 50%, #a6743a 100%);
+    box-shadow: 
+        0 12px 32px var(--safa-contact-glow-strong),
+        0 6px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.safa-contact-submit-btn:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 
+        0 6px 20px rgba(212, 165, 116, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.safa-contact-btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: safaContactRipple 0.8s ease-out;
+    pointer-events: none;
+}
+
+@keyframes safaContactRipple {
+    to {
+        transform: scale(6);
+        opacity: 0;
+    }
+}
+
+.safa-contact-btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== CONTACT INFO - PREMIUM CARDS ========== */
+.safa-contact-info-wrapper {
+    position: relative;
+}
+
+.safa-contact-info-title {
+    font-size: 2.5rem;
+    color: var(--safa-contact-text);
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    background: var(--safa-contact-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.safa-contact-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.safa-contact-info-card:last-child {
+    margin-bottom: 0;
+}
+
+.safa-contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.safa-contact-info-card:hover::before {
+    left: 100%;
+}
+
+.safa-contact-info-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.15),
+        0 0 30px var(--safa-contact-glow);
+    border-color: rgba(212, 165, 116, 0.5);
+}
+
+.safa-contact-info-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--safa-contact-gradient);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: 
+        0 8px 20px rgba(212, 165, 116, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Colorful Info Card Icons */
+.safa-contact-icon-call {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    box-shadow: 
+        0 8px 20px rgba(39, 174, 96, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.safa-contact-icon-email-card {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 
+        0 8px 20px rgba(231, 76, 60, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.safa-contact-icon-location {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    box-shadow: 
+        0 8px 20px rgba(52, 152, 219, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.safa-contact-icon-globe {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    box-shadow: 
+        0 8px 20px rgba(155, 89, 182, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.safa-contact-info-card:hover .safa-contact-icon-globe {
+    box-shadow: 
+        0 12px 28px rgba(155, 89, 182, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.safa-contact-info-card:hover .safa-contact-info-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.safa-contact-info-card:hover .safa-contact-icon-call {
+    box-shadow: 
+        0 12px 28px rgba(39, 174, 96, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.safa-contact-info-card:hover .safa-contact-icon-email-card {
+    box-shadow: 
+        0 12px 28px rgba(231, 76, 60, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.safa-contact-info-card:hover .safa-contact-icon-location {
+    box-shadow: 
+        0 12px 28px rgba(52, 152, 219, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.safa-contact-info-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.safa-contact-info-content h4 {
+    font-size: 1.2rem;
+    color: var(--safa-contact-text);
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.safa-contact-info-content p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    font-weight: 500;
+}
+
+.safa-contact-info-content a {
+    color: var(--safa-contact-accent-start);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    position: relative;
+}
+
+.safa-contact-info-content a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--safa-contact-gradient);
+    transition: width 0.3s ease;
+}
+
+.safa-contact-info-content a:hover {
+    color: var(--safa-contact-accent-mid);
+}
+
+.safa-contact-info-content a:hover::after {
+    width: 100%;
+}
+
+/* ========== SOCIAL MEDIA ICONS - AUTHENTIC BRAND COLORS ========== */
+.safa-contact-social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.safa-contact-social-icon {
+    width: 52px;
+    height: 52px;
+    background: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.safa-contact-social-icon i {
+    font-size: 1.6rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.safa-contact-social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.safa-contact-social-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 1;
+}
+
+/* Facebook - Official Blue */
+.safa-contact-social-facebook {
+    background: linear-gradient(135deg, #1877f2 0%, #0866ff 100%);
+    border-color: #1877f2;
+    box-shadow: 
+        0 4px 12px rgba(24, 119, 242, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.safa-contact-social-facebook i {
+    color: #ffffff;
+}
+
+.safa-contact-social-facebook:hover {
+    background: linear-gradient(135deg, #0866ff 0%, #075ecc 100%);
+    box-shadow: 
+        0 8px 24px rgba(24, 119, 242, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: #0866ff;
+}
+
+.safa-contact-social-facebook:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* Instagram - Official Pink/Orange/Purple Gradient */
+.safa-contact-social-instagram {
+    background: linear-gradient(135deg, 
+        #f09433 0%, 
+        #e6683c 25%, 
+        #dc2743 50%, 
+        #cc2366 75%, 
+        #bc1888 100%);
+    border-color: #e4405f;
+    box-shadow: 
+        0 4px 12px rgba(228, 64, 95, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.safa-contact-social-instagram i {
+    color: #ffffff;
+}
+
+.safa-contact-social-instagram:hover {
+    background: linear-gradient(135deg, 
+        #ff6b35 0%, 
+        #f09433 20%, 
+        #e6683c 40%, 
+        #dc2743 60%, 
+        #cc2366 80%, 
+        #bc1888 100%);
+    box-shadow: 
+        0 8px 24px rgba(228, 64, 95, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: #dc2743;
+}
+
+.safa-contact-social-instagram:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* LinkedIn - Official Professional Blue */
+.safa-contact-social-linkedin {
+    background: linear-gradient(135deg, #0077b5 0%, #006399 100%);
+    border-color: #0077b5;
+    box-shadow: 
+        0 4px 12px rgba(0, 119, 181, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.safa-contact-social-linkedin i {
+    color: #ffffff;
+}
+
+.safa-contact-social-linkedin:hover {
+    background: linear-gradient(135deg, #006399 0%, #005080 100%);
+    box-shadow: 
+        0 8px 24px rgba(0, 119, 181, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: #006399;
+}
+
+.safa-contact-social-linkedin:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* TikTok - Official Black with Red Accent */
+.safa-contact-social-tiktok {
+    background: linear-gradient(135deg, #000000 0%, #161823 50%, #000000 100%);
+    border-color: #000000;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.safa-contact-social-tiktok::before {
+    background: linear-gradient(135deg, 
+        rgba(255, 0, 80, 0.3) 0%, 
+        rgba(0, 242, 234, 0.2) 50%,
+        rgba(255, 0, 80, 0.3) 100%);
+    opacity: 0.6;
+}
+
+.safa-contact-social-tiktok i {
+    color: #ffffff;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.safa-contact-social-tiktok:hover {
+    background: linear-gradient(135deg, 
+        #ff0050 0%, 
+        #000000 30%, 
+        #000000 70%, 
+        #00f2ea 100%);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(255, 0, 80, 0.4);
+    transform: translateY(-4px);
+    border-color: #ff0050;
+}
+
+.safa-contact-social-tiktok:hover::before {
+    opacity: 1;
+}
+
+.safa-contact-social-tiktok:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* WhatsApp - Official Green */
+.safa-contact-social-whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border-color: #25d366;
+    box-shadow: 
+        0 4px 12px rgba(37, 211, 102, 0.3),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.safa-contact-social-whatsapp i {
+    color: #ffffff;
+}
+
+.safa-contact-social-whatsapp:hover {
+    background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+    box-shadow: 
+        0 8px 24px rgba(37, 211, 102, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: #128c7e;
+}
+
+.safa-contact-social-whatsapp:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* Hover effects for all social icons - no scaling, just lift */
+.safa-contact-social-icon:hover {
+    /* No scale transform - just vertical movement */
+}
+
+.safa-contact-social-icon:hover i {
+    transform: scale(1.1);
+    color: #ffffff;
+}
+
+/* ========== GOOGLE MAP - ENHANCED ========== */
+.safa-contact-map-wrapper {
+    margin-top: 60px;
+    position: relative;
+}
+
+.safa-contact-map-glass {
+    padding: 0;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 60px var(--safa-contact-shadow),
+        0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+    position: relative;
+    background: #f5f5f5;
+}
+
+.safa-contact-map-glass:hover {
+    box-shadow: 
+        0 30px 80px var(--safa-contact-shadow-strong),
+        0 0 40px var(--safa-contact-glow);
+}
+
+.safa-contact-map-glass iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 24px;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Map Loading Placeholder */
+.map-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 24px;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.map-placeholder p {
+    margin-top: 15px;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.map-loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(194, 146, 95, 0.2);
+    border-top-color: #c2925f;
+    border-radius: 50%;
+    animation: mapSpin 1s linear infinite;
+}
+
+@keyframes mapSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+    .safa-contact-container {
+        gap: 50px;
+    }
+    
+    .safa-contact-form-glass,
+    .safa-contact-info-glass {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .safa-contact-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .safa-contact-hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .safa-contact-hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .safa-contact-hero-badge {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+    
+    .safa-contact-hero-scroll-indicator {
+        bottom: 30px;
+    }
+    
+    .safa-contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .safa-contact-section {
+        padding: 70px 0;
+    }
+    
+    .safa-contact-form-glass,
+    .safa-contact-info-glass {
+        padding: 35px 25px;
+    }
+    
+    .safa-contact-form-title,
+    .safa-contact-info-title {
+        font-size: 2rem;
+    }
+    
+    .safa-contact-map-glass {
+        height: 400px;
+    }
+    
+    .safa-contact-info-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .safa-contact-hero {
+        height: 55vh;
+        min-height: 350px;
+    }
+    
+    .safa-contact-hero-title {
+        font-size: 2rem;
+    }
+    
+    .safa-contact-hero-title::after {
+        width: 150px;
+    }
+    
+    .safa-contact-hero-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    
+    .safa-contact-hero-badge {
+        padding: 8px 20px;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    
+    .safa-contact-hero-scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-arrow {
+        width: 25px;
+        height: 40px;
+        border-width: 2px;
+    }
+    
+    .safa-contact-form-title,
+    .safa-contact-info-title {
+        font-size: 1.75rem;
+    }
+    
+    .safa-contact-form-glass,
+    .safa-contact-info-glass {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    
+    .safa-contact-input,
+    .safa-contact-textarea,
+    .safa-contact-select {
+        padding: 18px 18px 18px 52px;
+        font-size: 1rem;
+    }
+    
+    .safa-contact-input-icon {
+        left: 18px;
+        font-size: 1.2rem;
+    }
+    
+    .safa-contact-label {
+        left: 52px;
+    }
+    
+    .safa-contact-input:focus + .safa-contact-label,
+    .safa-contact-input:not(:placeholder-shown) + .safa-contact-label,
+    .safa-contact-textarea:focus + .safa-contact-label,
+    .safa-contact-textarea:not(:placeholder-shown) + .safa-contact-label {
+        left: 44px;
+    }
+    
+    .safa-contact-label-select {
+        left: 44px;
+    }
+    
+    .safa-contact-map-glass {
+        height: 350px;
+        border-radius: 20px;
+    }
+    
+    .safa-contact-social-icons {
+        gap: 12px;
+    }
+    
+    .safa-contact-social-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .safa-contact-info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* ========== ANIMATIONS & PERFORMANCE ========== */
+@media (prefers-reduced-motion: reduce) {
+    .safa-contact-main,
+    .safa-contact-particles .particle,
+    .safa-contact-hero,
+    .safa-contact-form-glass,
+    .safa-contact-info-glass,
+    .safa-contact-info-card,
+    .safa-contact-social-icon {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .safa-contact-particles,
+    .safa-contact-hero-background {
+        display: none;
+    }
+    
+    .safa-contact-main {
+        background: #fff;
+    }
+}

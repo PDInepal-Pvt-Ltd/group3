@@ -1,0 +1,61 @@
+# ============================================
+# SAFE FORMWORK - SECURITY CONFIGURATION
+# ============================================
+
+# Prevent directory listing
+Options -Indexes
+
+# Security Headers (only if mod_headers is enabled)
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    # Enable XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+    # Referrer policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Protect sensitive files (Apache 2.4 syntax)
+<FilesMatch "\.(log|sql|bak|backup|old|tmp|ini|conf)$">
+    Require all denied
+</FilesMatch>
+
+# Remove .php extension from URLs (frontend only, exclude admin/ghar folder)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect .php to non-.php (remove extension from URL) - Frontend only
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php(\?[^\s]*)?\s [NC]
+    RewriteCond %{REQUEST_URI} !^/aus/ghar/
+    RewriteCond %{REQUEST_URI} !^/ghar/
+    RewriteCond %{REQUEST_URI} !^/aus/api/
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteRule ^ %1%2 [R=301,L]
+    
+    # Add .php extension internally (if file exists) - Frontend only
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/aus/ghar/
+    RewriteCond %{REQUEST_URI} !^/ghar/
+    RewriteCond %{REQUEST_URI} !^/aus/api/
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
+
+# Enable compression (if mod_deflate is available)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser caching (if mod_expires is available)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

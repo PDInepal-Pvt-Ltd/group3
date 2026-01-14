@@ -1,0 +1,41 @@
+Options -Indexes -ExecCGI
+
+# Disable PHP execution in uploads (support PHP 7/8 if loaded as module)
+<IfModule mod_php7.c>
+	php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+	php_flag engine off
+</IfModule>
+<IfModule mod_php.c>
+	php_flag engine off
+</IfModule>
+
+# Never treat these extensions as scripts
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8
+
+# Apache 2.4+: block PHP in uploads
+<IfModule mod_authz_core.c>
+	<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8)$">
+		Require all denied
+	</FilesMatch>
+	# Explicitly allow common image types
+	<FilesMatch "\.(jpe?g|png|gif|webp|svg)$">
+		Require all granted
+	</FilesMatch>
+</IfModule>
+
+# Apache 2.2 fallback
+<IfModule !mod_authz_core.c>
+	<FilesMatch "\.(php|phtml|php3|php4|php5|php7|php8)$">
+		Order allow,deny
+		Deny from all
+	</FilesMatch>
+	<FilesMatch "\.(jpe?g|png|gif|webp|svg)$">
+		Order allow,deny
+		Allow from all
+	</FilesMatch>
+</IfModule>
+
+IndexIgnore *

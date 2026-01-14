@@ -1,0 +1,2879 @@
+/* ============================================
+   SAFA ABOUT PAGE - CINEMATIC DESIGN
+   All classes prefixed with .safa-about- to avoid conflicts
+   ============================================ */
+
+/* ========== HERO SECTION - CINEMATIC INTRO ========== */
+.safa-about-hero {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 70px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Image */
+.safa-about-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: safaAboutHeroZoom 20s ease-in-out infinite;
+    transform: scale(1.1);
+    filter: brightness(0.7) contrast(1.1) saturate(1.2);
+    will-change: transform;
+}
+
+@keyframes safaAboutHeroZoom {
+    0%, 100% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Overlay - Gold gradient overlay */
+.safa-about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(202, 165, 109, 0.4) 0%, 
+        rgba(30, 30, 30, 0.5) 50%,
+        rgba(202, 165, 109, 0.3) 100%);
+    z-index: 2;
+    animation: safaAboutOverlayPulse 8s ease-in-out infinite;
+}
+
+@keyframes safaAboutOverlayPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* Additional Background Effects */
+.safa-about-hero-background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(202, 165, 109, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(202, 165, 109, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+    z-index: 2;
+    animation: safaAboutBackgroundMove 15s ease-in-out infinite;
+}
+
+@keyframes safaAboutBackgroundMove {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Hero Content - Cinematic Entrance */
+.safa-about-hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 3;
+    position: relative;
+    padding: 0 30px;
+    max-width: 1000px;
+    animation: safaAboutContentFadeIn 1.5s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes safaAboutContentFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Hero Badge */
+.safa-about-hero-badge {
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, 
+        rgba(202, 165, 109, 0.9) 0%, 
+        rgba(184, 133, 74, 0.9) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    box-shadow: 
+        0 8px 25px rgba(202, 165, 109, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: safaAboutBadgeSlide 1s ease-out 0.3s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: safaAboutBadgeShine 3s ease-in-out infinite;
+}
+
+@keyframes safaAboutBadgeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes safaAboutBadgeShine {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+/* Hero Title - Cinematic Typography */
+.safa-about-hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    text-shadow: 
+        0 8px 40px rgba(0, 0, 0, 0.5),
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: safaAboutTitleReveal 1.2s ease-out 0.5s both;
+    position: relative;
+}
+
+.safa-about-hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #caa56d, transparent);
+    border-radius: 2px;
+    animation: safaAboutTitleUnderline 1s ease-out 1.5s both;
+}
+
+@keyframes safaAboutTitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes safaAboutTitleUnderline {
+    from {
+        width: 0;
+    }
+    to {
+        width: 200px;
+    }
+}
+
+/* Hero Subtitle */
+.safa-about-hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.95;
+    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: safaAboutSubtitleFade 1s ease-out 0.8s both;
+}
+
+@keyframes safaAboutSubtitleFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Buttons */
+.safa-about-hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: safaAboutButtonsFade 1s ease-out 1s both;
+}
+
+@keyframes safaAboutButtonsFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Indicator */
+.safa-about-hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: safaAboutScrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    position: relative;
+}
+
+.scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: safaAboutScrollArrow 2s ease-in-out infinite;
+}
+
+@keyframes safaAboutScrollBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes safaAboutScrollArrow {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+.safa-about-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.safa-about-btn-primary {
+    background: rgba(194, 146, 95, 0.9);
+    color: #ffffff;
+    border-color: rgba(194, 146, 95, 0.5);
+    box-shadow: 0 6px 20px rgba(194, 146, 95, 0.4);
+}
+
+.safa-about-btn-primary:hover {
+    background: rgba(194, 146, 95, 1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(194, 146, 95, 0.5);
+}
+
+.safa-about-btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.safa-about-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+.safa-about-btn:focus {
+    outline: 2px solid #c2925f;
+    outline-offset: 3px;
+}
+
+.safa-about-hero-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.safa-about-hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+    animation: safaShapeFloat 20s ease-in-out infinite, safaShapeDrift 25s ease-in-out infinite;
+}
+
+.safa-about-hero-shape-1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.safa-about-hero-shape-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+.safa-about-hero-shape-3 {
+    width: 250px;
+    height: 250px;
+    top: 30%;
+    right: -50px;
+    animation-delay: 10s;
+}
+
+@keyframes safaHeroZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes safaShapeFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+        opacity: 0.4;
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+        opacity: 0.35;
+    }
+}
+
+@keyframes safaShapeDrift {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(15px) translateY(-10px);
+    }
+    50% {
+        transform: translateX(-10px) translateY(15px);
+    }
+    75% {
+        transform: translateX(10px) translateY(10px);
+    }
+}
+
+/* Intro Paragraph */
+.safa-about-intro {
+    padding: 60px 0;
+    background: linear-gradient(180deg, #f6f5f4 0%, #efeeed 100%);
+}
+
+.safa-about-intro-text {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #1a252f;
+    text-align: center;
+    font-weight: 400;
+    padding: 0 20px;
+    word-wrap: break-word;
+}
+
+/* Our Story Section */
+.safa-about-story {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.safa-about-story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.safa-about-story-content {
+    font-family: 'Inter', sans-serif;
+}
+
+.safa-about-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 35px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-section-title-center {
+    text-align: center;
+}
+
+.safa-about-story-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 8px;
+    margin-top: 0;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-story-images {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.safa-about-image-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #f5f5f5;
+}
+
+.safa-about-image-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(16, 24, 40, 0.15);
+}
+
+.safa-about-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.safa-about-image-card-1 {
+    height: 350px;
+}
+
+.safa-about-image-card-1 img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.safa-about-image-card-2,
+.safa-about-image-card-3 {
+    height: 280px;
+}
+
+.safa-about-image-card-2 img,
+.safa-about-image-card-3 img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.safa-about-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 200px;
+    background: #f5f5f5;
+    color: #999;
+    font-size: 3rem;
+    padding: 40px;
+    text-align: center;
+}
+
+.safa-about-image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+.safa-about-image-placeholder p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #999;
+}
+
+/* Cinematic Photo Showcase Section */
+.safa-about-showcase {
+    padding: 0;
+    background: #0a0e14;
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-showcase-container {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Swiping Text Animation */
+.safa-about-swipe-text {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.safa-about-swipe-text-inner {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c2925f;
+    padding: 8px 20px;
+    background: rgba(212, 165, 116, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 50px;
+    position: relative;
+    transform: translateX(-100%);
+    animation: safaSwipeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.safa-about-swipe-text-small .safa-about-swipe-text-inner {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+    letter-spacing: 1.5px;
+}
+
+@keyframes safaSwipeIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hero Showcase - Large Field Image */
+.safa-about-showcase-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.safa-about-showcase-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.safa-about-showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.1);
+    animation: safaImageParallax 20s ease-in-out infinite;
+    will-change: transform;
+    filter: brightness(1.15) contrast(1.05);
+}
+
+@keyframes safaImageParallax {
+    0%, 100% {
+        transform: scale(1.1) translateY(0);
+    }
+    50% {
+        transform: scale(1.15) translateY(-20px);
+    }
+}
+
+.safa-about-showcase-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 14, 20, 0.55) 0%, rgba(26, 37, 47, 0.45) 50%, rgba(10, 14, 20, 0.6) 100%);
+    z-index: 1;
+}
+
+.safa-about-showcase-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.safa-about-showcase-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: safaFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-showcase-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 0 auto;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: safaFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    word-wrap: break-word;
+}
+
+@keyframes safaFadeUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Two Column Grid - Car & Content */
+.safa-about-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+    position: relative;
+}
+
+.safa-about-showcase-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-showcase-item-image {
+    background: #1a252f;
+}
+
+.safa-about-showcase-item-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.safa-about-showcase-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(1.2) contrast(1.05);
+}
+
+.safa-about-showcase-item-wrapper:hover .safa-about-showcase-item-img {
+    transform: scale(1.05);
+}
+
+.safa-about-showcase-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 14, 20, 0.45) 0%, rgba(26, 37, 47, 0.35) 100%);
+    z-index: 1;
+}
+
+.safa-about-showcase-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px 50px;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.safa-about-showcase-item-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 15px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.safa-about-showcase-item-text {
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+}
+
+.safa-about-showcase-text-content {
+    max-width: 600px;
+}
+
+.safa-about-showcase-text-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.safa-about-showcase-text-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-showcase-features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.safa-about-showcase-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.safa-about-showcase-feature i {
+    font-size: 1.3rem;
+    color: #c2925f;
+    flex-shrink: 0;
+}
+
+/* Featured Concrete Truck Section */
+.safa-about-showcase-featured {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #0a0e14;
+}
+
+.safa-about-showcase-featured-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 700px;
+    position: relative;
+}
+
+.safa-about-showcase-featured-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-showcase-featured-img {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(1.2) contrast(1.05);
+}
+
+.safa-about-showcase-featured:hover .safa-about-showcase-featured-img {
+    transform: scale(1.05);
+}
+
+.safa-about-showcase-featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 14, 20, 0.55) 0%, rgba(10, 14, 20, 0.35) 100%);
+    z-index: 1;
+}
+
+.safa-about-showcase-featured-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    color: #ffffff;
+}
+
+.safa-about-showcase-featured-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+.safa-about-showcase-featured-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 50px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-showcase-featured-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.safa-about-showcase-stat {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.safa-about-showcase-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(212, 165, 116, 0.3);
+}
+
+.safa-about-showcase-stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #c2925f;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(194, 146, 95, 0.3);
+}
+
+.safa-about-showcase-stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Creative Projects Showcase - Creamy Cinematic Design */
+.safa-about-projects-creative {
+    padding: 140px 0;
+    background: linear-gradient(135deg, #f5f1e8 0%, #f8f5ed 25%, #faf8f2 50%, #f8f5ed 75%, #f5f1e8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-projects-creative-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(184, 149, 79, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.safa-about-projects-creative-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-projects-creative-header .safa-about-section-title {
+    color: #1a252f;
+}
+
+.safa-about-projects-creative-header .safa-about-section-subtitle {
+    color: #5a6578;
+}
+
+/* Featured Project - Large Hero Card */
+.safa-about-project-featured {
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-project-featured-image {
+    position: relative;
+    min-height: 500px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    animation: safaFeaturedPulse 8s ease-in-out infinite;
+}
+
+.safa-about-project-featured-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(201, 169, 97, 0.1) 100%),
+        radial-gradient(circle at 50% 50%, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+    animation: safaProjectGradientShift 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes safaProjectGradientShift {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes safaFeaturedPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 35px 90px rgba(212, 165, 116, 0.2);
+    }
+}
+
+.safa-about-project-featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 14, 20, 0.7) 0%, rgba(26, 37, 47, 0.6) 50%, rgba(10, 14, 20, 0.75) 100%);
+    z-index: 1;
+}
+
+.safa-about-project-featured-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 70px;
+    color: #ffffff;
+}
+
+.safa-about-project-featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: rgba(212, 165, 116, 0.2);
+    border: 1px solid rgba(212, 165, 116, 0.4);
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #d4a574;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.safa-about-project-featured-badge i {
+    font-size: 1.1rem;
+    color: #d4a574;
+}
+
+.safa-about-project-featured-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
+}
+
+.safa-about-project-featured-type {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.safa-about-project-featured-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 900px;
+    word-wrap: break-word;
+}
+
+.safa-about-project-featured-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.safa-about-project-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.safa-about-project-highlight:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(212, 165, 116, 0.4);
+    transform: translateY(-3px);
+}
+
+.safa-about-project-highlight i {
+    font-size: 1.2rem;
+    color: #c2925f;
+    flex-shrink: 0;
+}
+
+.safa-about-project-highlight span {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+/* Cinematic Photo Gallery */
+.safa-about-photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 50px;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-photo-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(26, 37, 47, 0.12),
+                0 5px 20px rgba(212, 165, 116, 0.08);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.safa-about-photo-item:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(26, 37, 47, 0.18),
+                0 10px 30px rgba(212, 165, 116, 0.15);
+}
+
+.safa-about-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(201, 169, 97, 0.08) 100%);
+}
+
+.safa-about-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(1.05) contrast(1.05);
+}
+
+.safa-about-photo-item:hover .safa-about-photo-img {
+    transform: scale(1.1);
+}
+
+.safa-about-photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(26, 37, 47, 0.3) 100%);
+    z-index: 1;
+    transition: opacity 0.6s ease;
+}
+
+.safa-about-photo-item:hover .safa-about-photo-overlay {
+    opacity: 0.6;
+}
+
+.safa-about-photo-content {
+    padding: 40px 35px;
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-photo-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    transition: color 0.4s ease;
+}
+
+.safa-about-photo-item:hover .safa-about-photo-title {
+    color: #c2925f;
+}
+
+.safa-about-photo-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #5a6578;
+    margin-top: 0;
+    word-wrap: break-word;
+}
+
+.safa-about-project-creative-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    animation: safaCardFloat 6s ease-in-out infinite;
+}
+
+.safa-about-project-creative-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(201, 169, 97, 0.08) 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+.safa-about-project-creative-card:hover {
+    transform: translateY(-20px) scale(1.03) !important;
+    box-shadow: 0 30px 80px rgba(212, 165, 116, 0.25);
+    border-color: rgba(212, 165, 116, 0.3);
+    animation-play-state: paused;
+}
+
+.safa-about-project-creative-card:hover::before {
+    opacity: 1;
+}
+
+.safa-about-project-creative-image {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.safa-about-project-creative-bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.3) 0%, rgba(201, 169, 97, 0.25) 50%, rgba(184, 149, 79, 0.2) 100%);
+    animation: safaProjectCardGradient 6s ease-in-out infinite, safaGradientMove 10s ease-in-out infinite;
+}
+
+@keyframes safaProjectCardGradient {
+    0%, 100% {
+        background: linear-gradient(135deg, rgba(212, 165, 116, 0.3) 0%, rgba(201, 169, 97, 0.25) 50%, rgba(184, 149, 79, 0.2) 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, rgba(201, 169, 97, 0.3) 0%, rgba(184, 149, 79, 0.25) 50%, rgba(212, 165, 116, 0.2) 100%);
+    }
+}
+
+@keyframes safaGradientMove {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    33% {
+        transform: translateX(5px) translateY(-5px);
+        opacity: 0.9;
+    }
+    66% {
+        transform: translateX(-5px) translateY(5px);
+        opacity: 0.9;
+    }
+}
+
+.safa-about-project-creative-icon {
+    position: relative;
+    z-index: 3;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: safaProjectIconFloat 5s ease-in-out infinite, safaIconRotate 8s linear infinite;
+}
+
+@keyframes safaProjectIconFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-12px) scale(1.08);
+    }
+}
+
+@keyframes safaIconRotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(2deg);
+    }
+    75% {
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes safaCardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.safa-about-project-creative-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.safa-about-project-creative-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.safa-about-project-creative-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.safa-about-project-creative-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.safa-about-project-creative-card:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.safa-about-project-creative-card:hover .safa-about-project-creative-icon {
+    transform: scale(1.15) rotate(10deg);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(212, 165, 116, 0.5);
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+}
+
+.safa-about-project-creative-icon i {
+    font-size: 3rem;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+}
+
+.safa-about-project-creative-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 35px;
+    background: rgba(26, 37, 47, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.safa-about-project-creative-number {
+    display: none;
+}
+
+.safa-about-project-creative-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-project-creative-type {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #d4a574;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-project-creative-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+    word-wrap: break-word;
+}
+
+.safa-about-project-creative-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-project-service {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(212, 165, 116, 0.2);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #d4a574;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.safa-about-project-creative-card:hover .safa-about-project-service {
+    background: rgba(212, 165, 116, 0.3);
+    border-color: rgba(212, 165, 116, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.2);
+}
+
+.safa-about-project-creative-hover-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.safa-about-project-creative-card:hover .safa-about-project-creative-hover-effect {
+    width: 400px;
+    height: 400px;
+}
+
+/* Floating Particles */
+.safa-about-projects-creative-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.safa-about-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(212, 165, 116, 0.4);
+    border-radius: 50%;
+    animation: safaParticleFloat 15s linear infinite;
+}
+
+.safa-about-particle:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.safa-about-particle:nth-child(2) {
+    left: 30%;
+    top: 60%;
+    animation-delay: 3s;
+    animation-duration: 20s;
+}
+
+.safa-about-particle:nth-child(3) {
+    left: 70%;
+    top: 30%;
+    animation-delay: 6s;
+    animation-duration: 16s;
+}
+
+.safa-about-particle:nth-child(4) {
+    left: 85%;
+    top: 75%;
+    animation-delay: 9s;
+    animation-duration: 22s;
+}
+
+.safa-about-particle:nth-child(5) {
+    left: 50%;
+    top: 10%;
+    animation-delay: 12s;
+    animation-duration: 19s;
+}
+
+@keyframes safaParticleFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.safa-about-timeline-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+}
+
+.safa-about-milestone {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(194, 146, 95, 0.1);
+}
+
+.safa-about-milestone:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(16, 24, 40, 0.12);
+    border-color: rgba(194, 146, 95, 0.2);
+}
+
+.safa-about-milestone-year {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #d4a574 0%, #c9a961 50%, #b8954f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.safa-about-milestone-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 12px;
+}
+
+.safa-about-milestone-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #5a6578;
+    margin: 0;
+}
+
+/* Core Values Section */
+.safa-about-values {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.safa-about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+}
+
+.safa-about-value-card {
+    text-align: center;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(194, 146, 95, 0.1);
+}
+
+.safa-about-value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(16, 24, 40, 0.12);
+    border-color: rgba(194, 146, 95, 0.2);
+}
+
+.safa-about-value-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(201, 169, 97, 0.12) 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(212, 165, 116, 0.2);
+    transition: all 0.4s ease;
+}
+
+.safa-about-value-card:hover .safa-about-value-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.25) 0%, rgba(201, 169, 97, 0.22) 100%);
+    border-color: rgba(212, 165, 116, 0.3);
+}
+
+.safa-about-value-icon i {
+    font-size: 2.5rem;
+    color: #c2925f;
+}
+
+.safa-about-value-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 15px;
+}
+
+.safa-about-value-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #5a6578;
+    margin: 0;
+}
+
+/* Team Section */
+.safa-about-team {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #f6f5f4 0%, #efeeed 100%);
+}
+
+.safa-about-section-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #5a6578;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.safa-about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.safa-about-team-card {
+    text-align: center;
+    padding: 30px 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(194, 146, 95, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: safaTeamCardFloat 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.safa-about-team-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(194, 146, 95, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.safa-about-team-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 25px 60px rgba(16, 24, 40, 0.15),
+        0 0 40px rgba(194, 146, 95, 0.2);
+    border-color: rgba(194, 146, 95, 0.3);
+    animation-play-state: paused;
+}
+
+.safa-about-team-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes safaTeamCardFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+}
+
+/* Staggered animation delays for wave effect */
+.safa-about-team-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.safa-about-team-card:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.safa-about-team-card:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.safa-about-team-card:nth-child(4) {
+    animation-delay: 4.5s;
+}
+
+.safa-about-team-card:nth-child(1) .safa-about-team-image {
+    animation-delay: 0s;
+}
+
+.safa-about-team-card:nth-child(2) .safa-about-team-image {
+    animation-delay: 1s;
+}
+
+.safa-about-team-card:nth-child(3) .safa-about-team-image {
+    animation-delay: 2s;
+}
+
+.safa-about-team-card:nth-child(4) .safa-about-team-image {
+    animation-delay: 3s;
+}
+
+.safa-about-team-image {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(212, 165, 116, 0.2);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    animation: safaTeamImagePulse 4s ease-in-out infinite;
+    will-change: transform, box-shadow;
+}
+
+.safa-about-team-image::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.4), rgba(194, 146, 95, 0.2));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: -1;
+}
+
+.safa-about-team-card:hover .safa-about-team-image {
+    transform: scale(1.08) rotate(5deg);
+    border-color: rgba(212, 165, 116, 0.6);
+    box-shadow: 
+        0 12px 30px rgba(212, 165, 116, 0.4),
+        0 0 30px rgba(194, 146, 95, 0.3);
+    animation-play-state: paused;
+}
+
+.safa-about-team-card:hover .safa-about-team-image::after {
+    opacity: 1;
+}
+
+@keyframes safaTeamImagePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+    }
+}
+
+.safa-about-team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+.safa-about-team-card:hover .safa-about-team-image img {
+    transform: scale(1.1);
+}
+
+.safa-about-team-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 8px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.safa-about-team-card:hover .safa-about-team-name {
+    transform: translateY(-3px);
+    color: #c2925f;
+    text-shadow: 0 2px 10px rgba(194, 146, 95, 0.3);
+}
+
+.safa-about-team-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #c2925f;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.1s;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.safa-about-team-card:hover .safa-about-team-role {
+    transform: translateY(-2px);
+    color: #b8824a;
+    text-shadow: 0 2px 8px rgba(194, 146, 95, 0.2);
+}
+
+.safa-about-team-skill {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #5a6578;
+    margin: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.safa-about-team-card:hover .safa-about-team-skill {
+    transform: translateY(-2px);
+    color: #4a5568;
+    opacity: 0.95;
+}
+
+/* Main Person Section - Side Animation */
+.safa-about-person {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-person-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.safa-about-person-content {
+    position: relative;
+    z-index: 2;
+}
+
+.safa-about-person-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(201, 169, 97, 0.12) 100%);
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #c2925f;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 20px;
+}
+
+.safa-about-person-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #5a6578;
+    margin-bottom: 40px;
+    font-weight: 400;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.safa-about-person-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.safa-about-person-detail-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.safa-about-person-detail-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 12px 30px rgba(212, 165, 116, 0.15);
+    border-color: rgba(212, 165, 116, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.safa-about-person-detail-item i {
+    font-size: 2rem;
+    color: #c2925f;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.safa-about-person-detail-item h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 8px;
+}
+
+.safa-about-person-detail-item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #5a6578;
+    margin: 0;
+}
+
+.safa-about-person-image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.safa-about-person-image-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(201, 169, 97, 0.15) 100%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: safaPersonBgPulse 4s ease-in-out infinite;
+    z-index: 0;
+}
+
+.safa-about-person-image-frame {
+    position: relative;
+    z-index: 2;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: 
+        0 25px 70px rgba(16, 24, 40, 0.25),
+        0 0 0 12px rgba(212, 165, 116, 0.15),
+        0 0 0 20px rgba(255, 255, 255, 0.9),
+        0 0 0 24px rgba(212, 165, 116, 0.2),
+        0 0 0 32px rgba(255, 255, 255, 0.95),
+        inset 0 0 0 2px rgba(212, 165, 116, 0.1);
+    border: none;
+    background: #ffffff;
+    padding: 8px;
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: safaPersonFloat 6s ease-in-out infinite;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.safa-about-person-image-wrapper:hover .safa-about-person-image-frame {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    box-shadow: 
+        0 35px 90px rgba(212, 165, 116, 0.35),
+        0 0 0 12px rgba(212, 165, 116, 0.2),
+        0 0 0 20px rgba(255, 255, 255, 0.95),
+        0 0 0 24px rgba(212, 165, 116, 0.25),
+        0 0 0 32px rgba(255, 255, 255, 1),
+        inset 0 0 0 2px rgba(212, 165, 116, 0.15);
+}
+
+.safa-about-person-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    border-radius: 4px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.safa-about-person-decoration {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.3) 0%, rgba(201, 169, 97, 0.2) 100%);
+    z-index: 1;
+    animation: safaPersonDecoFloat 8s ease-in-out infinite;
+}
+
+.safa-about-person-decoration-1 {
+    width: 120px;
+    height: 120px;
+    top: -20px;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.safa-about-person-decoration-2 {
+    width: 80px;
+    height: 80px;
+    bottom: 30px;
+    left: -30px;
+    animation-delay: 2s;
+}
+
+.safa-about-person-decoration-3 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    right: -40px;
+    animation-delay: 4s;
+}
+
+@keyframes safaPersonBgPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes safaPersonFloat {
+    0%, 100% {
+        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(0);
+    }
+    50% {
+        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-15px);
+    }
+}
+
+@keyframes safaPersonDecoFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+    33% {
+        transform: translate(15px, -15px) scale(1.1);
+        opacity: 0.5;
+    }
+    66% {
+        transform: translate(-10px, 10px) scale(0.9);
+        opacity: 0.45;
+    }
+}
+
+/* Metrics Section */
+.safa-about-metrics {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #1a252f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.safa-about-metrics::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.safa-about-metrics .safa-about-section-title {
+    color: #ffffff;
+}
+
+.safa-about-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.safa-about-metric-card {
+    text-align: center;
+    padding: 50px 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.safa-about-metric-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(212, 165, 116, 0.3);
+    box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
+}
+
+.safa-about-metric-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #c2925f;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(194, 146, 95, 0.3);
+}
+
+.safa-about-metric-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Testimonial Section */
+.safa-about-testimonial {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.safa-about-testimonial-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.08) 0%, rgba(201, 169, 97, 0.06) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    text-align: center;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+}
+
+.safa-about-testimonial-icon {
+    font-size: 4rem;
+    color: rgba(194, 146, 95, 0.3);
+    margin-bottom: 30px;
+}
+
+.safa-about-testimonial-quote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #1a252f;
+    font-style: italic;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.safa-about-testimonial-author {
+    font-family: 'Poppins', sans-serif;
+}
+
+.safa-about-testimonial-author strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #1a252f;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.safa-about-testimonial-author span {
+    font-size: 0.95rem;
+    color: #5a6578;
+    font-weight: 400;
+}
+
+/* CTA Section */
+.safa-about-cta {
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #1a252f 100%);
+    overflow: hidden;
+}
+
+.safa-about-cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/cta-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    animation: safaHeroZoom 25s ease-in-out infinite;
+}
+
+.safa-about-cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 36, 0.85) 0%, rgba(26, 37, 47, 0.8) 100%);
+    z-index: 1;
+}
+
+.safa-about-cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.safa-about-cta-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.safa-about-cta-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.safa-about-btn-cta {
+    background: linear-gradient(135deg, #d4a574 0%, #c9a961 50%, #b8954f 100%);
+    color: #ffffff;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+}
+
+.safa-about-btn-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(212, 165, 116, 0.5);
+    background: linear-gradient(135deg, #c9a961 0%, #b8954f 50%, #d4a574 100%);
+}
+
+/* ============================================
+   LIGHTBOX STYLES
+   ============================================ */
+.safa-about-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 36, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.safa-about-lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    cursor: default;
+}
+
+.safa-about-lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.safa-about-lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.safa-about-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: rotate(90deg);
+}
+
+.safa-about-lightbox-close:focus {
+    outline: 2px solid #c2925f;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .safa-about-lightbox-close {
+        top: -40px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .safa-about-hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .safa-about-hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .safa-about-hero-badge {
+        padding: 10px 28px;
+        font-size: 0.9rem;
+    }
+
+    .safa-about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .safa-about-timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .safa-about-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .safa-about-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .safa-about-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .safa-about-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .safa-about-hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .safa-about-hero-title::after {
+        width: 150px;
+    }
+
+    .safa-about-hero-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    
+    .safa-about-hero-badge {
+        padding: 10px 24px;
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .safa-about-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .safa-about-hero-scroll-indicator {
+        bottom: 30px;
+    }
+    
+    .safa-about-hero-content {
+        padding: 0 20px;
+    }
+
+    .safa-about-btn {
+        width: 100%;
+    }
+
+    .safa-about-intro {
+        padding: 50px 0;
+    }
+
+    .safa-about-intro-text {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+
+    .safa-about-story {
+        padding: 80px 0;
+    }
+
+    .safa-about-section-title {
+        font-size: 2.2rem;
+    }
+
+    .safa-about-timeline {
+        padding: 80px 0;
+    }
+
+    .safa-about-timeline-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .safa-about-values {
+        padding: 80px 0;
+    }
+
+    .safa-about-values-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .safa-about-team {
+        padding: 80px 0;
+    }
+
+    .safa-about-team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .safa-about-person {
+        padding: 80px 0;
+    }
+
+    .safa-about-person-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .safa-about-person-image-frame {
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+
+    .safa-about-person-detail-item {
+        padding: 20px;
+    }
+
+    .safa-about-person-detail-item i {
+        font-size: 1.5rem;
+    }
+
+    .safa-about-person-detail-item h4 {
+        font-size: 1.1rem;
+    }
+
+    /* Showcase Responsive */
+    .safa-about-showcase-hero {
+        min-height: 70vh;
+    }
+
+    .safa-about-showcase-title {
+        font-size: 3rem;
+    }
+
+    .safa-about-showcase-desc {
+        font-size: 1.1rem;
+    }
+
+    .safa-about-showcase-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .safa-about-showcase-item-wrapper {
+        min-height: 500px;
+    }
+
+    .safa-about-showcase-item-text {
+        padding: 60px 40px;
+    }
+
+    .safa-about-showcase-text-title {
+        font-size: 2.2rem;
+    }
+
+    .safa-about-showcase-featured-wrapper {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .safa-about-showcase-featured-img {
+        min-height: 500px;
+    }
+
+    .safa-about-showcase-featured-content {
+        padding: 60px 40px;
+    }
+
+    .safa-about-showcase-featured-title {
+        font-size: 2.5rem;
+    }
+
+    .safa-about-showcase-featured-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .safa-about-projects-creative {
+        padding: 80px 0;
+    }
+
+    .safa-about-projects-creative-header {
+        margin-bottom: 60px;
+    }
+
+    .safa-about-project-featured {
+        margin-bottom: 60px;
+    }
+
+    .safa-about-project-featured-image {
+        min-height: 400px;
+    }
+
+    .safa-about-project-featured-content {
+        padding: 50px 40px;
+    }
+
+    .safa-about-project-featured-title {
+        font-size: 2rem;
+    }
+
+    .safa-about-project-featured-type {
+        font-size: 1rem;
+    }
+
+    .safa-about-project-featured-desc {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .safa-about-project-featured-highlights {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .safa-about-photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .safa-about-photo-wrapper {
+        height: 300px;
+    }
+
+    .safa-about-photo-content {
+        padding: 35px 30px;
+    }
+
+    .safa-about-photo-title {
+        font-size: 1.6rem;
+    }
+
+    .safa-about-photo-desc {
+        font-size: 0.95rem;
+    }
+
+    .safa-about-project-creative-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .safa-about-project-creative-icon i {
+        font-size: 2.5rem;
+    }
+
+    .safa-about-project-creative-number {
+        display: none;
+    }
+
+    .safa-about-project-creative-title {
+        font-size: 1.4rem;
+    }
+
+    .safa-about-project-creative-content {
+        padding: 30px 25px;
+    }
+
+    .safa-about-showcase-title {
+        font-size: 2.5rem;
+    }
+
+    .safa-about-showcase-desc {
+        font-size: 1.05rem;
+    }
+
+    .safa-about-showcase-text-title {
+        font-size: 2rem;
+    }
+
+    .safa-about-showcase-featured-title {
+        font-size: 2.2rem;
+    }
+
+    .safa-about-metric-number {
+        font-size: 3rem;
+    }
+
+    .safa-about-testimonial {
+        padding: 80px 0;
+    }
+
+    .safa-about-testimonial-card {
+        padding: 50px 40px;
+    }
+
+    .safa-about-testimonial-quote {
+        font-size: 1.1rem;
+    }
+
+    .safa-about-cta {
+        padding: 100px 0;
+    }
+
+    .safa-about-cta-title {
+        font-size: 2.5rem;
+    }
+
+    .safa-about-cta-desc {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .safa-about-hero {
+        height: 55vh;
+        min-height: 350px;
+    }
+    
+    .safa-about-hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .safa-about-hero-title::after {
+        width: 120px;
+        height: 3px;
+    }
+
+    .safa-about-hero-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    .safa-about-hero-badge {
+        padding: 8px 20px;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+    
+    .safa-about-hero-buttons {
+        gap: 12px;
+        margin-top: 15px;
+    }
+    
+    .safa-about-hero-scroll-indicator {
+        bottom: 20px;
+    }
+    
+    .scroll-arrow {
+        width: 25px;
+        height: 40px;
+        border-width: 2px;
+    }
+    
+    .safa-about-hero-content {
+        padding: 0 15px;
+    }
+
+    .safa-about-section-title {
+        font-size: 1.8rem;
+    }
+
+    .safa-about-milestone {
+        padding: 30px 20px;
+    }
+
+    .safa-about-milestone-year {
+        font-size: 2rem;
+    }
+
+    .safa-about-value-card {
+        padding: 40px 30px;
+    }
+
+    .safa-about-value-icon {
+        width: 75px;
+        height: 75px;
+    }
+
+    .safa-about-value-icon i {
+        font-size: 2rem;
+    }
+
+    .safa-about-testimonial-card {
+        padding: 40px 25px;
+    }
+
+    .safa-about-cta-title {
+        font-size: 2rem;
+    }
+}

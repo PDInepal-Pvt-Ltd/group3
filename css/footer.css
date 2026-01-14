@@ -1,0 +1,734 @@
+/* ========== LIGHT OFF-WHITE FOOTER WITH FLOATING ANIMATIONS ========== */
+.modern-footer {
+    background: #f8f9fa;
+    padding: 30px 0 15px;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Footer Section */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+/* Make Quick Links Bold */
+.links-section .footer-title {
+    font-weight: 700;
+}
+
+/* ========== LET'S CONNECT SECTION ========== */
+.connect-section .contact-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.contact-block:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+.contact-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.call-icon {
+    background: #10b981;
+}
+
+.email-icon {
+    background: #8b5cf6;
+}
+
+.location-icon {
+    background: #ec4899;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.contact-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a252f;
+    line-height: 1.3;
+}
+
+/* ========== QUICK LINKS SECTION ========== */
+.links-section .quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.links-section .quick-links li {
+    margin: 0;
+    position: relative;
+}
+
+.links-section .quick-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a252f;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.links-section .quick-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c2925f;
+    transition: width 0.3s ease;
+}
+
+.links-section .quick-links a:hover {
+    color: #c2925f;
+    padding-left: 6px;
+}
+
+.links-section .quick-links a:hover::before {
+    width: 100%;
+}
+
+/* ========== CONNECT WITH US SECTION - FLOATING ANIMATION ========== */
+.social-section .social-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 200px;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #ffffff;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    animation: floatIdle 3s ease-in-out infinite;
+}
+
+/* Floating Animation - Different delays for each icon */
+.social-icon:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.social-icon:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.social-icon:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.social-icon:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.social-icon:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.social-icon:nth-child(6) {
+    animation-delay: 1s;
+}
+
+@keyframes floatIdle {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Hover - Enhanced Floating */
+.social-icon:hover {
+    transform: translateY(-12px) scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    animation: floatHover 0.6s ease-in-out infinite;
+}
+
+@keyframes floatHover {
+    0%, 100% {
+        transform: translateY(-12px) scale(1.15);
+    }
+    50% {
+        transform: translateY(-18px) scale(1.15);
+    }
+}
+
+.social-icon svg {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.social-icon.facebook {
+    background: #1877f2;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.linkedin {
+    background: #0a66c2;
+}
+
+.social-icon.tiktok {
+    background: #000000;
+}
+
+.social-icon.whatsapp {
+    background: #25d366;
+}
+
+/* ========== OUR LOCATION SECTION ========== */
+.location-section .map-container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    padding: 3px;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 200px;
+    box-sizing: border-box;
+}
+
+.location-section .map-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.location-section .map-container iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* Map Loading Placeholder for Footer */
+.location-section .map-placeholder {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 10px;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.location-section .map-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(194, 146, 95, 0.2);
+    border-top-color: #c2925f;
+    border-radius: 50%;
+    animation: mapSpin 1s linear infinite;
+}
+
+@keyframes mapSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== FOOTER BOTTOM / COPYRIGHT ========== */
+.footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 12px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+.copyright .sitemap-link {
+    color: #1877f2;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.copyright .sitemap-link:hover {
+    color: #0a66c2;
+}
+
+/* ========== PERFECT ROUNDED CIRCLE YELLOW SCROLL TO TOP BUTTON ========== */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    max-width: 56px;
+    max-height: 56px;
+    padding: 0;
+    border: none;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #d4a574 0%, #c9a961 50%, #b8954f 100%);
+    color: #1a252f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.5), 
+                0 2px 8px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateZ(0);
+    will-change: transform, opacity, box-shadow;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-sizing: border-box;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.btn-scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateZ(0);
+}
+
+.btn-scroll-top:hover {
+    background: linear-gradient(135deg, #c9a961 0%, #d4a574 50%, #e0b17d 100%);
+    transform: translateY(-5px) scale(1.1) translateZ(0);
+    box-shadow: 0 8px 30px rgba(212, 165, 116, 0.7), 
+                0 4px 12px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-radius: 50% !important;
+}
+
+.btn-scroll-top:active {
+    transform: translateY(-2px) scale(1.05) translateZ(0);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.6), 
+                0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-scroll-top:focus {
+    outline: none;
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.5), 
+                0 2px 8px rgba(0, 0, 0, 0.15),
+                0 0 0 3px rgba(212, 165, 116, 0.3);
+}
+
+.btn-scroll-top svg {
+    width: 24px;
+    height: 24px;
+    stroke: #1a252f;
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.btn-scroll-top:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ========== RESPONSIVE DESIGN - PERFECT SPACING ========== */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .location-section {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .location-section .map-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 180px;
+    }
+    
+    .location-section .map-container iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-footer {
+        padding: 40px 0 20px;
+        margin-top: 50px;
+    }
+    
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Bold Mobile Interface */
+    .footer-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    
+    .connect-section .contact-blocks {
+        gap: 12px;
+    }
+    
+    .contact-block {
+        padding: 14px 18px;
+        gap: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-icon {
+        width: 42px;
+        height: 42px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .contact-label {
+        font-weight: 700;
+        font-size: 0.75rem;
+    }
+    
+    .contact-value {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    
+    .links-section .quick-links {
+        gap: 8px;
+    }
+    
+    .links-section .quick-links a {
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 8px 0;
+    }
+    
+    .social-section .social-icons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .location-section {
+        width: 100%;
+        max-width: 100%;
+        grid-column: 1 / -1;
+    }
+    
+    .location-section .map-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 200px;
+        padding: 2px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+    
+    .location-section .map-container iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+        min-height: 200px;
+        box-sizing: border-box;
+    }
+    
+    /* Perfect Circle Yellow Scroll Button - Mobile */
+    .btn-scroll-top {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+        max-width: 52px;
+        max-height: 52px;
+        bottom: 25px;
+        right: 25px;
+        border-radius: 50% !important;
+    }
+    
+    .btn-scroll-top svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-footer {
+        padding: 20px 0 10px;
+        margin-top: 30px;
+    }
+    
+    .footer-container {
+        padding: 0 15px;
+    }
+    
+    .footer-content {
+        gap: 18px;
+        margin-bottom: 10px;
+    }
+    
+    /* Extra Bold Small Mobile */
+    .footer-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+    
+    .connect-section .contact-blocks {
+        gap: 10px;
+    }
+    
+    .contact-block {
+        padding: 12px 16px;
+        gap: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    }
+    
+    .contact-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .contact-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+    }
+    
+    .contact-value {
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+    
+    .links-section .quick-links {
+        gap: 6px;
+    }
+    
+    .links-section .quick-links a {
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 6px 0;
+    }
+    
+    .social-section .social-icons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        max-width: 100%;
+    }
+    
+    .social-icon {
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    }
+    
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .location-section {
+        width: 100%;
+        max-width: 100%;
+        grid-column: 1 / -1;
+    }
+    
+    .location-section .map-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 180px;
+        padding: 2px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+    }
+    
+    .location-section .map-container iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 180px;
+        min-height: 180px;
+        box-sizing: border-box;
+    }
+    
+    .copyright {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    
+    /* Perfect Circle Yellow Scroll Button - Small Mobile */
+    .btn-scroll-top {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        max-width: 48px;
+        max-height: 48px;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50% !important;
+    }
+    
+    .btn-scroll-top svg {
+        width: 20px;
+        height: 20px;
+    }
+}

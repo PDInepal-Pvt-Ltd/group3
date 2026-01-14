@@ -1,0 +1,34 @@
+TROUBLESHOOTING .htaccess ISSUES:
+
+If you still get 500 errors, try these steps:
+
+1. TEMPORARILY RENAME .htaccess:
+   - Rename .htaccess to .htaccess.disabled
+   - Try accessing the site
+   - If it works, the issue is in .htaccess
+
+2. CHECK APACHE ERROR LOG:
+   - Location: E:\wamp64\logs\apache_error.log
+   - Look for ".htaccess" in the error messages
+   - Common errors:
+     * "Order not allowed here" - Apache 2.4 syntax issue
+     * "Invalid command" - Module not enabled
+     * "RewriteEngine" - mod_rewrite not enabled
+
+3. MINIMAL .htaccess (if current doesn't work):
+   - Delete .htaccess completely
+   - Or use only: Options -Indexes
+
+4. APACHE MODULES TO CHECK:
+   - mod_rewrite (if using URL rewriting)
+   - mod_deflate (for compression)
+   - mod_expires (for caching)
+   - mod_headers (for headers)
+
+5. IF YOU NEED FILE PROTECTION:
+   - Use Apache's main httpd.conf instead of .htaccess
+   - Or use Apache 2.4 syntax:
+     <FilesMatch "^(config\.php|db_connect\.php)$">
+         Require all denied
+     </FilesMatch>
+

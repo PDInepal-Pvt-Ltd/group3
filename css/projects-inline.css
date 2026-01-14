@@ -1,0 +1,254 @@
+/**
+ * Projects Page Inline Styles
+ * 
+ * Styles for project cards, timeline view, and interactive effects.
+ * Extracted from inline styles in projects.php for better organization.
+ * 
+ * @package SafaFormwork
+ * @version 1.0
+ */
+
+/* Flash/shine effects for project cards */
+.proj-card-v2 {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    cursor: pointer;
+}
+
+/* Slow breathing movement for entire card */
+.proj-card-v2 {
+    animation: cardBreathe 7s ease-in-out infinite;
+}
+
+/* Toolbar */
+.proj-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 14px 0;
+}
+
+.proj-search {
+    flex: 1 1 260px;
+    max-width: 520px;
+}
+
+.proj-search input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    outline: none;
+}
+
+.proj-search input::placeholder {
+    color: #999;
+    font-weight: 400;
+    opacity: 1;
+}
+
+.proj-search input:focus {
+    border-color: #caa56d;
+    box-shadow: 0 4px 12px rgba(202, 165, 109, 0.15);
+}
+
+.view-toggle {
+    display: flex;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.view-toggle .view-btn {
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 800;
+    color: #555;
+    transition: all 0.2s ease;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.2px;
+}
+
+.view-toggle .view-btn.active {
+    background: linear-gradient(135deg, #d4a574 0%, #b8854a 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(184, 133, 74, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: 900;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Timeline view */
+.proj-timeline {
+    position: relative;
+    margin-left: 18px;
+}
+
+.proj-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #eaeaea, #dcdcdc);
+}
+
+.tl-item {
+    position: relative;
+    margin: 14px 0 18px 18px;
+}
+
+.tl-dot {
+    position: absolute;
+    left: -28px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #caa56d;
+    box-shadow: 0 0 0 4px rgba(202, 165, 109, 0.15);
+}
+
+.tl-card {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    padding: 10px 12px;
+}
+
+.tl-thumb {
+    width: 120px;
+    height: 72px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.tl-title {
+    font-weight: 800;
+    margin: 0 0 4px 0;
+}
+
+.tl-meta {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Smooth glowing animated headline */
+.proj-v2-title {
+    position: relative;
+    color: #ffffff;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.35),
+        0 0 14px rgba(255, 255, 255, 0.35),
+        0 0 28px rgba(255, 215, 128, 0.22);
+    animation: titleGlow 3.2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.35),
+            0 0 10px rgba(255, 255, 255, 0.28),
+            0 0 20px rgba(255, 215, 128, 0.18);
+        transform: translateY(0);
+    }
+    50% {
+        text-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.35),
+            0 0 14px rgba(255, 255, 255, 0.45),
+            0 0 34px rgba(255, 215, 128, 0.28);
+        transform: translateY(-1px);
+    }
+}
+
+/* Ensure cover photo retains natural colors (no dim) */
+.proj-v2-cover {
+    filter: brightness(1) contrast(1);
+}
+
+/* Light, subtle overlay for readability without heavy darkening */
+.proj-v2-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.08) 60%, rgba(0, 0, 0, 0.16) 100%);
+    pointer-events: none;
+}
+
+/* Quick diagonal shine sweep on hover */
+.proj-card-v2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -160%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+    transform: skewX(-20deg);
+    pointer-events: none;
+}
+
+.proj-card-v2:hover::before {
+    animation: projShine 750ms ease forwards;
+}
+
+@keyframes projShine {
+    from {
+        left: -160%;
+    }
+    to {
+        left: 160%;
+    }
+}
+
+/* Subtle slow breathing - lift and tiny scale */
+@keyframes cardBreathe {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -4px, 0) scale(1.008);
+    }
+}
+
+/* Radial flash on click/press */
+.proj-card-v2::after {
+    content: "";
+    position: absolute;
+    width: 220%;
+    height: 220%;
+    left: calc(var(--mx, 50%) - 110%);
+    top: calc(var(--my, 50%) - 110%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 55%);
+    opacity: 0;
+    transform: scale(0.35);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+}
+
+.proj-card-v2.flash::after {
+    opacity: 1;
+    transform: scale(1);
+}
+

@@ -1,0 +1,70 @@
+# ============================================
+# SECURITY PROTECTION FOR ADMIN AREA
+# ============================================
+
+# Protect against directory listing
+Options -Indexes
+
+# Deny direct access to sensitive files (Apache 2.4 syntax)
+<FilesMatch "\.(log|sql|bak|backup|old|tmp)$">
+	Require all denied
+</FilesMatch>
+
+# Prevent access to hidden files (Apache 2.4 syntax)
+<FilesMatch "^\.">
+	Require all denied
+</FilesMatch>
+
+# Security Headers (only if mod_headers is enabled)
+<IfModule mod_headers.c>
+	# Prevent clickjacking
+	Header set X-Frame-Options "DENY"
+	# Prevent MIME type sniffing
+	Header set X-Content-Type-Options "nosniff"
+	# Enable XSS protection
+	Header set X-XSS-Protection "1; mode=block"
+	# Referrer policy
+	Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# PHP Configuration for Large File Uploads
+<IfModule mod_php.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 512M
+	php_value max_file_uploads 500
+	php_value max_execution_time 600
+	php_value max_input_time 600
+	php_value memory_limit 1024M
+	php_value default_socket_timeout 600
+</IfModule>
+
+<IfModule mod_php7.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 512M
+	php_value max_file_uploads 500
+	php_value max_execution_time 600
+	php_value max_input_time 600
+	php_value memory_limit 1024M
+	php_value default_socket_timeout 600
+</IfModule>
+
+<IfModule mod_php8.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 512M
+	php_value max_file_uploads 500
+	php_value max_execution_time 600
+	php_value max_input_time 600
+	php_value memory_limit 1024M
+	php_value default_socket_timeout 600
+</IfModule>
+
+# Keep connection alive for long uploads
+<IfModule mod_headers.c>
+	Header set Connection "keep-alive"
+</IfModule>
+
+# Disable output compression for progress updates
+<IfModule mod_deflate.c>
+	SetEnvIfNoCase Request_URI \.(jpg|jpeg|png|gif|webp)$ no-gzip
+</IfModule>
+
