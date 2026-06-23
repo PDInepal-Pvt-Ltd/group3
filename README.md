@@ -1,202 +1,258 @@
+# SAFA Formwork & Scaffolding — Web Platform
 
-# SAFA Formwork Web Platform
-
-A comprehensive PHP-based web application for SAFA Formwork, designed to showcase construction projects, company services, and facilitate client engagement through inquiries and a dynamic gallery. This project is ideal for construction businesses seeking a professional online presence with robust backend management.
+A full-stack PHP/MySQL website for **SAFA Formwork & Scaffolding**, a construction services company. It pairs a public marketing site (home, about, services, projects, contact) with a custom-built admin dashboard for managing projects, project galleries, and client inquiries — no third-party CMS required.
 
 ---
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Key Features](#key-features)
+- [Live Structure](#live-structure)
 - [Technology Stack](#technology-stack)
-- [Installation & Setup](#installation--setup)
+- [Features](#features)
+- [Admin Dashboard](#admin-dashboard)
+- [Getting Started](#getting-started)
 - [Configuration](#configuration)
-- [Folder Structure](#folder-structure)
+- [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
-- [Usage Guide](#usage-guide)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
+- [Security Notes](#security-notes)
+- [Deployment](#deployment)
 - [License](#license)
+- [Support / Hire the Developer](#support--hire-the-developer)
 
 ---
 
-## Project Overview
+## Live Structure
 
-SAFA Formwork Web Platform is a full-featured website for a construction company, built with PHP and MySQL. It provides:
-
-- A public-facing site for clients to view company information, services, and completed projects
-- A secure backend for managing projects, gallery images, and client inquiries
-- Automated email notifications for inquiries
-- Responsive design for desktop and mobile users
-
----
-
-## Key Features
-
-- **Multi-Page Website:** Home, About, Services, Projects, and Contact pages
-- **Dynamic Project Gallery:** Add, edit, and display project images and details
-- **Inquiry Management:** Clients can submit inquiries via forms; admins receive email notifications
-- **Admin Panel:** Secure area for managing projects and viewing inquiries
-- **Custom Styling:** Responsive layouts using custom CSS
-- **Database Integration:** All data stored and managed in MySQL
-- **Email Integration:** SMTP-based email notifications for inquiries
-- **Security:** Includes basic security features for authentication and data protection
+| Layer | Pages |
+|---|---|
+| Public site | `index.php`, `about.php`, `services.php`, `projects.php`, `project.php`, `contact.php` |
+| Admin dashboard | `ghar/` (login, projects CRUD, inquiries inbox) |
+| Backend APIs | `api/get_projects.php`, `api/send_inquiry.php` |
 
 ---
 
 ## Technology Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Backend:** PHP 7+
-- **Database:** MySQL (see `safa_formwork.sql`)
-- **Email:** SMTP (see `includes/smtp_config.php`)
+**Frontend**
+- HTML5, CSS3 (per-page stylesheets in [css/](css/)), vanilla JavaScript (per-page scripts in [js/](js/))
+- Custom image/gallery slider, video handling (`js/slider.js`, `js/video-handler.js`)
+- PWA-ready: includes a service worker ([sw.js](sw.js))
+
+**Backend**
+- PHP 7.4+ / PHP 8.x, procedural with included helper modules (no framework)
+- PDO (MySQL) with prepared statements throughout
+
+**Database**
+- MySQL / MariaDB — schema and seed data in [safa_formwork.sql](safa_formwork.sql)
+- Core tables: `projects`, `project_images`, `inquiries`, `admins` (auto-created on first run if missing)
+
+**Email**
+- SMTP-based notifications (Gmail SMTP by default) via [includes/smtp_mail.php](includes/smtp_mail.php) and [includes/send_mail.php](includes/send_mail.php)
+- Configured in [includes/smtp_config.php](includes/smtp_config.php)
+
+**Server / Infra**
+- Apache with `.htaccess` (pretty URLs, security headers, upload limits)
+- `php.ini` / `.user.ini` overrides for large file uploads (up to 512M) and longer execution time on shared hosting
 
 ---
 
-## Installation & Setup
+## Features
 
-### 1. Clone the Repository
+### Public site
+- Responsive multi-page marketing site (Home, About, Services, Projects, Contact)
+- Dynamic project listing pulled live from the database via JSON API
+- Project detail pages with image galleries
+- Contact form with server-side validation, stored in DB, and emailed to the admin via SMTP
 
-```sh
-git clone https://github.com/amritsapkotadev/Internship.git
+### Admin dashboard
+- Custom-built dashboard (no third-party admin panel) to manage all dynamic content
+- Add / edit / delete projects, each with a cover image and multiple gallery images
+- Bulk image upload support (large file size limits configured for high-res project photos)
+- Inquiries inbox — view, mark read/unread, and manage all client submissions from the contact form
+- Session-based authentication with CSRF protection, login rate-limiting, and security event logging
+
+---
+
+## Admin Dashboard
+
+The admin area lives in [ghar/](ghar/) (intentionally not named `admin/`, to reduce automated probing).
+
+| Purpose | File |
+|---|---|
+| Login page | `ghar/xtzprabin12.php` |
+| Dashboard (projects management) | `ghar/xtztragiikz.php` |
+| Inquiries inbox | `ghar/inquiries.php` |
+| Project deletion handler | `ghar/project_delete.php` |
+| Logout | `ghar/logout.php` |
+
+**First-time login:** On first visit to the login page, the app auto-creates an `admins` table and seeds a default account if none exists:
+
+```
+Username: admin
+Password: admin123
 ```
 
-### 2. Database Setup
+> ⚠️ Change this password immediately after first login (update the `admins` table / add a password-change flow before going live). Never leave the default credentials active on a public deployment.
 
-- Import the `safa_formwork.sql` file into your MySQL server to create the required tables and sample data.
-- Update database credentials in `includes/db_connect.php` as per your environment.
+**What the dashboard does:**
+- **Projects (`xtztragiikz.php`)** — create/edit/delete projects (title, category: current/completed/past, location, description), upload a cover image plus a gallery of additional images per project.
+- **Inquiries (`inquiries.php`)** — lists every contact-form submission with name, email, phone, project type, subject, and message; lets the admin triage read/unread status.
+- **Auth & sessions** — `includes/security.php` handles session hardening (HttpOnly/SameSite cookies, 30-min session rotation, 1-hour inactivity timeout), CSRF tokens on all forms, and a 5-attempts-per-5-minutes login rate limiter (resettable via `?reset_attempts=admin` for local dev).
 
-### 3. PHP Configuration
+---
 
-- Ensure your server supports PHP 7 or higher.
-- Update `php.ini` for file uploads, email, and other settings as needed.
+## Getting Started
 
-### 4. SMTP Email Setup
+### Requirements
+- PHP 7.4+ (8.x recommended)
+- MySQL 5.7+ / MariaDB
+- Apache with `mod_rewrite` and `mod_headers` (XAMPP/WAMP/LAMP/MAMP all work locally)
 
-- Edit `includes/smtp_config.php` with your SMTP server details for email notifications.
+### 1. Clone the repository
+```sh
+git clone https://github.com/PDInepal-Pvt-Ltd/group3.git
+cd group3
+```
 
-### 5. Run the Application
+### 2. Create the database
+```sh
+mysql -u root -p -e "CREATE DATABASE safa_formwork"
+mysql -u root -p safa_formwork < safa_formwork.sql
+```
+(Tables also self-create on first request if you skip the import — see `api/get_projects.php`, `api/send_inquiry.php`, `ghar/xtzprabin12.php`.)
 
-- Host the project on a local or remote PHP server (e.g., XAMPP, MAMP, LAMP).
-- Access the site via `http://localhost/your-folder/` or your server's domain.
+### 3. Configure the database connection
+Edit [includes/db_connect.php](includes/db_connect.php):
+```php
+$dbConfig = [
+    'host'    => 'localhost',
+    'dbname'  => 'safa_formwork',
+    'user'    => 'root',
+    'pass'    => '',
+    'charset' => 'utf8mb4',
+];
+```
+
+### 4. Configure outgoing email
+Edit [includes/smtp_config.php](includes/smtp_config.php) with your SMTP credentials (Gmail App Password recommended if using Gmail SMTP):
+```php
+return [
+    'smtp_host'     => 'smtp.gmail.com',
+    'smtp_port'     => 587,
+    'smtp_secure'   => 'tls',
+    'smtp_username' => 'you@gmail.com',
+    'smtp_password' => 'your-app-password',
+    'from_email'    => 'you@gmail.com',
+    'from_name'     => 'Safa Formwork & Scaffolding',
+    'to_email'      => 'inbox@yourdomain.com',
+    'to_name'       => 'Safa Formwork Team',
+    'reply_to_email'=> 'you@gmail.com',
+    'reply_to_name' => 'Safa Formwork & Scaffolding',
+];
+```
+
+### 5. Serve the app
+Point your web server's document root at the project folder, then visit:
+```
+http://localhost/                 → public site
+http://localhost/ghar/xtzprabin12.php → admin login
+```
+
+### 6. Make `uploads/` writable
+```sh
+chmod -R 755 uploads/
+```
 
 ---
 
 ## Configuration
 
-- **Database:**
-  - Update `includes/db_connect.php` with your MySQL host, username, password, and database name.
-- **Email:**
-  - Configure SMTP settings in `includes/smtp_config.php` for outgoing emails.
-- **Uploads:**
-  - Ensure `uploads/` directory is writable for image and project uploads.
+| What | Where |
+|---|---|
+| DB credentials | `includes/db_connect.php` |
+| SMTP credentials | `includes/smtp_config.php` |
+| Upload size limits | `php.ini`, `.htaccess`, `.user.ini` (default 512M / 600s execution for large galleries) |
+| Security headers / CSP | `includes/security.php`, `ghar/.htaccess` |
 
 ---
 
-## Folder Structure
+## Project Structure
 
 ```
-├── about.php                # About page
-├── contact.php              # Contact page with inquiry form
-├── footer.php               # Footer include
-├── index.php                # Home page
-├── php.ini                  # PHP configuration
-├── project.php              # Single project details
-├── projects.php             # Projects listing page
-├── safa_formwork.sql        # MySQL database schema
-├── services.php             # Services page
-├── sw.js                    # Service worker (if used)
+├── index.php, about.php, services.php, projects.php, project.php, contact.php
+├── footer.php                  # Shared footer include
+├── sw.js                       # Service worker
+├── safa_formwork.sql           # Full DB schema + seed data
 ├── api/
-│   ├── get_projects.php     # API endpoint for fetching projects
-│   └── send_inquiry.php     # API endpoint for submitting inquiries
-├── assets/
-│   └── Gallery Sliding/     # Gallery assets
-├── css/
-│   ├── about.css
-│   ├── contact.css
-│   ├── footer.css
-│   ├── global.css
-│   ├── index.css
-│   ├── project-detail-inline.css
-│   ├── projects-inline.css
-│   ├── projects.css
-│   └── services.css
-├── ghar/
-│   ├── inquiries.php        # Admin inquiries management
-│   ├── logout.php           # Admin logout
-│   ├── project_delete.php   # Project deletion
-│   ├── projects.php         # Admin projects management
-│   ├── xtzprabin12.php      # (Custom/admin scripts)
-│   └── xtztragiikz.php      # (Custom/admin scripts)
+│   ├── get_projects.php        # GET — JSON list of all projects + images
+│   └── send_inquiry.php        # POST — store inquiry + trigger email
+├── ghar/                       # Admin dashboard (auth-protected)
+│   ├── xtzprabin12.php         # Login
+│   ├── xtztragiikz.php         # Projects dashboard (CRUD + uploads)
+│   ├── inquiries.php           # Inquiries inbox
+│   ├── project_delete.php      # Delete handler
+│   └── logout.php
 ├── includes/
-│   ├── db_connect.php       # Database connection
-│   ├── header.php           # Header include
-│   ├── security.php         # Security/authentication
-│   ├── send_mail.php        # Email sending logic
-│   ├── smtp_config.php      # SMTP configuration
-│   └── smtp_mail.php        # SMTP mail logic
-├── js/
-│   ├── about.js
-│   ├── contact.js
-│   ├── main.js
-│   ├── project-detail.js
-│   ├── projects.js
-│   ├── services.js
-│   ├── slider.js
-│   └── video-handler.js
-├── logs/
-│   └── README.txt           # Log documentation
-├── uploads/
-│   ├── index.html
-│   ├── gallery/             # Uploaded gallery images
-│   └── projects/            # Uploaded project images
+│   ├── db_connect.php          # PDO connection
+│   ├── security.php            # Auth, CSRF, rate limiting, logging
+│   ├── send_mail.php / smtp_mail.php / smtp_config.php
+│   └── header.php
+├── css/                        # Per-page stylesheets
+├── js/                         # Per-page scripts
+├── assets/                     # Static media (gallery, etc.)
+├── uploads/                    # User-uploaded project/gallery images
+└── logs/                       # Security event log (gitignored in production)
 ```
 
 ---
 
 ## API Endpoints
 
-- `api/get_projects.php` — Returns JSON data for all projects
-- `api/send_inquiry.php` — Accepts POST requests for inquiry submissions
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/get_projects.php` | Returns all projects with nested gallery images as JSON |
+| POST | `/api/send_inquiry.php` | Accepts `name, email, phone, project_type, subject, message`; stores + emails the inquiry |
 
 ---
 
-## Usage Guide
+## Security Notes
 
-### For Visitors
-- Browse company information, services, and completed projects
-- View project gallery with images and details
-- Submit inquiries via the contact form
-
-### For Admins
-- Log in to the admin panel (see `ghar/` directory)
-- Add, edit, or delete projects
-- View and respond to client inquiries
-- Manage gallery uploads
+- Passwords are hashed with `password_hash()` / verified with `password_verify()` (bcrypt) — never stored in plaintext.
+- All admin queries use PDO prepared statements (no string-concatenated SQL).
+- CSRF tokens required on the login form; session cookies are HttpOnly + SameSite=Strict.
+- Security-relevant events (login success/failure, CSRF mismatch, unauthorized access, rate-limit hits) are logged to `logs/security.log`.
+- File uploads are validated by MIME type (`finfo`) and size before being written to disk.
+- **Before going to production:** rotate the default admin password, set real SMTP credentials, set `session.cookie_secure` to `1` once served over HTTPS, and ensure `logs/` and `.sql` files are not web-accessible (already blocked in `ghar/.htaccess`, verify root `.htaccess` covers the rest).
 
 ---
 
-## Screenshots
+## Deployment
 
-_Add screenshots of the homepage, project gallery, admin panel, and inquiry form here to showcase the UI and features._
+Works on any standard LAMP/WAMP stack or shared PHP hosting (cPanel, Plesk, etc.):
 
----
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature-branch`)
-3. Make your changes
-4. Commit and push (`git commit -m 'Add new feature'`)
-5. Open a pull request
-
-For major changes, please open an issue first to discuss your ideas.
+1. Upload all files via FTP/Git, keeping the folder structure intact.
+2. Create the MySQL database and import `safa_formwork.sql`.
+3. Update `includes/db_connect.php` and `includes/smtp_config.php` with production credentials.
+4. Set `uploads/` and `logs/` to writable (755).
+5. Point your domain/document root at the project root.
+6. Log in at `/ghar/xtzprabin12.php`, change the default admin password, and start adding real projects.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is proprietary software built for SAFA Formwork & Scaffolding. All rights reserved unless otherwise licensed by the owner.
+
+---
+
+## Support / Hire the Developer
+
+This platform — public site + custom admin dashboard + secure backend — was built end-to-end as a freelance/internship project.
+
+**Interested in buying this template, a custom version for your own business, or hiring for similar work?**
+Reach out: **ricardomeme1209@gmail.com**
+
+Available for:
+- Selling/licensing this codebase (with or without setup support)
+- Custom builds based on this stack (PHP/MySQL business sites + admin dashboards)
+- Ongoing maintenance, hosting setup, and feature additions

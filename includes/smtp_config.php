@@ -12,7 +12,7 @@ return [
     'smtp_password' => '', // 
     'from_email' => '',
     'from_name' => 'Safa Formwork & Scaffolding',
-    'to_email' => '', submissions
+    'to_email' => '',
     'to_name' => 'Safa Formwork Team',
     'reply_to_email' => '',
     'reply_to_name' => 'Safa Formwork & Scaffolding'
